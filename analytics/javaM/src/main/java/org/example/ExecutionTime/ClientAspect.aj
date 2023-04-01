@@ -6,12 +6,13 @@ import java.util.HashMap;
 public aspect ClientAspect {
     HashMap<String, Double> executionCounter = new HashMap<String, Double>();
 
+    pointcut executionCounter(): execution(* *(..));
     pointcut recordTime(): execution(* *(..));
     pointcut recordTimeAfter(): execution(* *(..));
 
     before(): recordTime() {
 
-        System.out.println("\n ==============================\n rec tim before");
+        System.out.println("\n == ========================== ==\n rec tim before");
 
         String funcName = String.valueOf(thisJoinPoint.getSignature());
         Double tempTime ;
@@ -44,6 +45,7 @@ public aspect ClientAspect {
 
         System.out.flush();
     }
+
 
 
 }
