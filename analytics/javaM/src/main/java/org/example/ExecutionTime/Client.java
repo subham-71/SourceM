@@ -5,5 +5,17 @@ public class Client {
 
         System.out.println( "I am here" );
     }
+    public static void testingA() {
+
+        System.out.println( "I am here" );
+        testing();
+        testingC();
+
+    }
+
+    public static void testingC() {
+
+        System.out.println( "I am here" );
+    }
 
 }
