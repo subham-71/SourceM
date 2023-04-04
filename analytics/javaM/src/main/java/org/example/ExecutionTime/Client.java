@@ -14,8 +14,8 @@ public class Client {
     }
 
     public static void testingC() {
-
-        System.out.println( "I am here" );
+        testing();
+        System.out.println( "I am here  " );
     }
 
 }

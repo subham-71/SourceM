@@ -26,13 +26,13 @@
 //        }
 //
 //        if( !executionTimer.containsKey(methodName) ){
-//            tempTime =0.0;
+//            tempTime = 0.0;
 //        }
 //        else{
 //            tempTime = executionTimer.get(methodName);
 //        }
 //
-//        tempTime -= System.nanoTime()/1000000000.0;
+//        tempTime -= System.nanoTime() / 1000000000.0;
 //
 //        executionTimer.put(methodName,tempTime);
 //        System.out.println(methodName + tempTime);
