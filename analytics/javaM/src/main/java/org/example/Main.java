@@ -1,15 +1,27 @@
 package org.example;
 
-import org.example.ExecutionTime.Client ;
+class MyException extends Exception {
+    MyException(String message) {
+        super(message);
+    }
+}
 
 public class Main {
+    public static void test() throws MyException {
+        throw new MyException("MyException");
+    }
 
-    public static void main( String[] args ) {
-        for(int i = 0;i<10;i++){
-            Client.testingA();
+    public static void testA() {
+        System.out.println("Pratham, this is not funny");
+    }
+
+    public static void main(String[] args) {
+        try {
+            test();
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
         }
-        Client.testingC();
-        System.out.println( "Hello World!" );
-//
+        System.out.println("Hello World!");
+        testA();
     }
 }

@@ -10,3 +10,7 @@ ajc -source 1.7 -cp C:\aspectj1.9\lib\aspectjrt.jar -sourceroots ./ -outjar out
 ## Weaving into Third party
 
 ajc -source 1.7 -cp C:\aspectj1.9\lib\aspectjrt.jar -injars .\app.jar HWTracer.aj -outjar output.jar
+
+## Running the extracted output JAR file
+
+java -cp ".;C:\aspectj1.9\lib\aspectjrt.jar" org.example.Main

@@ -21,7 +21,7 @@ class FunctionStatistic {
             return String.format("%s: %d ", functionName, endTime - startTime);
         } else {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%s: %d", functionName, endTime - startTime));
+            sb.append(String.format("%s: %d ", functionName, endTime - startTime));
             for (FunctionStatistic child : children) {
                 sb.append(child.toString()).append("\n");
             }
@@ -61,6 +61,22 @@ public aspect Profiler {
     }
 
     after() returning() : profile() && !exclude() {
+        if (callStack.isEmpty()) {
+            return;
+        }
+        methodNameStack.pop();
+        FunctionStatistic functionStatistic = callStack.pop();
+        functionStatistic.endTime = System.nanoTime();
+        System.out.println("Ending function: " + functionStatistic.functionName);
+        if (!callStack.isEmpty()) {
+            callStack.peek().children.add(functionStatistic);
+        } else {
+            System.out.println(functionStatistic.toString());
+            System.out.println(pathCounter);
+        }
+    }
+
+    after() throwing (Exception e): profile() && !exclude() {
         if (callStack.isEmpty()) {
             return;
         }
