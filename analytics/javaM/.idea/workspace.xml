@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37db886e-1a31-4f48-85f9-8e6576fc7e36" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ExecutionTime/ClientAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ExecutionTime/ClientAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Profiler/FunctionStatistic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Profiler/NewProfiler.aj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/output.jar" beforeDir="false" />
-    </list>
-    <list id="0b552297-944a-4733-99be-bc0ce6349f37" name="Changes by Abhijith" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.class" beforeDir="false" />
-    </list>
-    <list id="6b39c480-03ba-451d-8111-edde9a62caae" name="Changes by DELL" comment="">
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-    </list>
-    <list id="0a861217-cd0a-4900-b038-4eb54c657bd8" name="Changes by prathamk" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="37db886e-1a31-4f48-85f9-8e6576fc7e36" name="Changes" comment="" />
+    <list id="0b552297-944a-4733-99be-bc0ce6349f37" name="Changes by Abhijith" comment="" />
+    <list id="6b39c480-03ba-451d-8111-edde9a62caae" name="Changes by DELL" comment="" />
+    <list id="0a861217-cd0a-4900-b038-4eb54c657bd8" name="Changes by prathamk" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,14 +22,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/example/Profiler/Profiler.aj">
-      <ranges>
-        <range start1="23" end1="24" start2="23" end2="24" changelist="37db886e-1a31-4f48-85f9-8e6576fc7e36" />
-        <range start1="77" end1="77" start2="77" end2="93" changelist="0b552297-944a-4733-99be-bc0ce6349f37" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,7 +73,7 @@
       <workItem from="1680608565275" duration="146000" />
       <workItem from="1680631938457" duration="681000" />
       <workItem from="1680711291395" duration="1756000" />
-      <workItem from="1680713067247" duration="5730000" />
+      <workItem from="1680713067247" duration="6413000" />
     </task>
     <servers />
   </component>
