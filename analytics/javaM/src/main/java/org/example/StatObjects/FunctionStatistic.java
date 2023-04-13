@@ -1,4 +1,4 @@
-package org.example;
+package org.example.StatObjects;
 
 import java.util.ArrayList;
 

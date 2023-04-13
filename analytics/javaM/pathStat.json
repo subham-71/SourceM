@@ -1,0 +1,22 @@
+[
+  {
+    "caller": "main",
+    "callee": "testA",
+    "callCount": 2
+  },
+  {
+    "caller": "main",
+    "callee": "test",
+    "callCount": 1
+  },
+  {
+    "caller": "testA",
+    "callee": "test",
+    "callCount": 2
+  },
+  {
+    "caller": "main",
+    "callee": "testThrow",
+    "callCount": 1
+  }
+]

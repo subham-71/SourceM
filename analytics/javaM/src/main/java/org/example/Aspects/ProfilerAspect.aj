@@ -1,7 +1,7 @@
 package org.example.Aspects;
 
 import org.example.DataStore;
-import org.example.FunctionStatistic;
+import org.example.StatObjects.FunctionStatistic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Stack;
 
 public aspect ProfilerAspect extends BaseAspect {
     static Stack<FunctionStatistic> callStack = new Stack<>();
-    Stack<String> methodNameStack = new Stack<>();
+    Stack<String> methodNameStack = new Stack<>( );
 
     pointcut profile(): execution(* *(..));
 
@@ -29,10 +29,10 @@ public aspect ProfilerAspect extends BaseAspect {
             }
 
         }
-        methodNameStack.push(thisJoinPoint.getSignature().getName());
+        methodNameStack.push(thisJoinPoint.getSignature().getName( ));
         FunctionStatistic functionStatistic = new FunctionStatistic(
             thisJoinPoint.getSignature().getName(), System.nanoTime());
-        System.out.println("Calling function: " + functionStatistic.functionName);
+//        System.out.println("Calling function: " + functionStatistic.functionName);
         callStack.push(functionStatistic);
     }
 
@@ -43,7 +43,7 @@ public aspect ProfilerAspect extends BaseAspect {
         methodNameStack.pop();
         FunctionStatistic functionStatistic = callStack.pop();
         functionStatistic.endTime = System.nanoTime();
-        System.out.println("Ending function: " + functionStatistic.functionName);
+//        System.out.println("Ending function: " + functionStatistic.functionName);
         if (!callStack.isEmpty()) {
             callStack.peek().children.add(functionStatistic);
         } else {
@@ -60,7 +60,7 @@ public aspect ProfilerAspect extends BaseAspect {
         methodNameStack.pop();
         FunctionStatistic functionStatistic = callStack.pop();
         functionStatistic.endTime = System.nanoTime();
-        System.out.println("Ending function: " + functionStatistic.functionName);
+//        System.out.println("Ending function: " + functionStatistic.functionName);
         if (!callStack.isEmpty()) {
             callStack.peek().children.add(functionStatistic);
         } else {
