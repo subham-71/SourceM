@@ -14,6 +14,8 @@ import java.util.HashMap;
 
 public class DataStore {
     static Gson gson = new Gson();
+
+    static ApiGateway apiGateway = new ApiGateway("http://url");
     static ArrayList<FunctionStatistic> functionStatistics = new ArrayList<>();
     static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
     static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
