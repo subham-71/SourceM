@@ -1,5 +1,5 @@
 import React, {useContext,useState,useEffect} from 'react'
-import {auth,db} from '../firebase'
+import {auth,db} from '../config/firebaseConfig.jsx'
 
 const AuthContext = React.createContext()
 
@@ -16,6 +16,7 @@ export default function AuthProvider({children}) {
     }
 
     function login(email, password) {
+        console.log("In Login");
         return auth.signInWithEmailAndPassword(email, password)
     }
 
