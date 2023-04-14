@@ -1,0 +1,22 @@
+[
+  {
+    "functionName": "int org.example.Main.testThrow(int, int)",
+    "executionCount": 1,
+    "timeExecuted": 3017600
+  },
+  {
+    "functionName": "void org.example.Main.test()",
+    "executionCount": 3,
+    "timeExecuted": 160310200
+  },
+  {
+    "functionName": "void org.example.Main.main(String[])",
+    "executionCount": 1,
+    "timeExecuted": 470570300
+  },
+  {
+    "functionName": "void org.example.Main.testA()",
+    "executionCount": 2,
+    "timeExecuted": 159231300
+  }
+]

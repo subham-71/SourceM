@@ -1,0 +1,18 @@
+[
+  {
+    "exceptionClass": "org.example.MyException",
+    "functionName": "test",
+    "timestamps": [
+      "2023-04-13T18:49:46.236968700",
+      "2023-04-13T18:49:46.385966900",
+      "2023-04-13T18:49:46.505971100"
+    ]
+  },
+  {
+    "exceptionClass": "java.lang.ArithmeticException",
+    "functionName": "testThrow",
+    "timestamps": [
+      "2023-04-13T18:49:46.286969100"
+    ]
+  }
+]
