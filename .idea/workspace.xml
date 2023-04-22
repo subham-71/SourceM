@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="43f6e1c0-384a-4f1a-8053-2f53ad5fcdb9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/public/dash.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/src/contexts/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/src/contexts/AuthContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "aspect.path.notification.shown": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/MasterFolder/General/Academic/CS305_MajorProject/CS305-T07/dashboard/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -40,6 +46,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MasterFolder\General\Academic\CS305_MajorProject\CS305-T07\dashboard\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MasterFolder\General\Academic\CS305_MajorProject\CS305-T07\dashboard\src\assets" />
+      <recent name="C:\MasterFolder\General\Academic\CS305_MajorProject\CS305-T07\dashboard\public" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680608734813</updated>
       <workItem from="1680608736932" duration="717000" />
+      <workItem from="1681388746527" duration="6540000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,47 @@
+[
+  {
+    "functionName": "main",
+    "startTime": 283149094454300,
+    "endTime": 283149458310800,
+    "children": [
+      {
+        "functionName": "test",
+        "startTime": 283149169033000,
+        "endTime": 283149188476900,
+        "children": []
+      },
+      {
+        "functionName": "testThrow",
+        "startTime": 283149234075300,
+        "endTime": 283149235853100,
+        "children": []
+      },
+      {
+        "functionName": "testA",
+        "startTime": 283149287076800,
+        "endTime": 283149335896700,
+        "children": [
+          {
+            "functionName": "test",
+            "startTime": 283149333111000,
+            "endTime": 283149334949000,
+            "children": []
+          }
+        ]
+      },
+      {
+        "functionName": "testA",
+        "startTime": 283149400328200,
+        "endTime": 283149456775900,
+        "children": [
+          {
+            "functionName": "test",
+            "startTime": 283149453210700,
+            "endTime": 283149455208600,
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]
