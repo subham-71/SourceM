@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -14,6 +14,4 @@ app.use(bodyParser.json());
 
 app.use('/exec-time', execTime.routes);
 
-
-
-app.listen(config.port, () => console.log('App is listening on url http://localhost:' + config.port));
+app.listen(5000, () => console.log('App is listening on url http://localhost:' + 5000));
