@@ -33,6 +33,11 @@ public class Main {
     public static void main(String[] args) {
         test();
         int ans = testThrow(12, 0);
+
+        TestClassInclude testClassInclude = new TestClassInclude( );
+        testClassInclude.testFunction("Pratham");
+        testClassInclude.testFunction("Pratham", "Kundan");
+
         System.out.println(ans);
         testA();
         testA();

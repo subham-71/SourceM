@@ -1,10 +1,7 @@
 package org.example;
 
 import com.google.gson.Gson;
-import org.example.StatObjects.ExceptionStatistic;
-import org.example.StatObjects.ExecutionStatistic;
-import org.example.StatObjects.FunctionStatistic;
-import org.example.StatObjects.PathStatistic;
+import org.example.StatObjects.*;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -17,6 +14,7 @@ public class DataStore {
 
     static ApiGateway apiGateway = new ApiGateway("http://url");
     static ArrayList<FunctionStatistic> functionStatistics = new ArrayList<>();
+    static ArrayList<Fstat> fStatistics = new ArrayList<>();
     static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
     static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
 
@@ -30,13 +28,23 @@ public class DataStore {
 
     static HashMap<ArrayList<String>, ExceptionStatistic> exceptionMap = new HashMap<>();
 
-    public static void addFunctionStatistic(FunctionStatistic functionStatistic) {
+    public static void updateFunctionStatistic(FunctionStatistic functionStatistic) {
         functionStatistics.add(functionStatistic);
         Gson gson = new Gson();
 
         String json = gson.toJson(functionStatistics);
-
+//        System.out.println(json);
         saveStatistic(json, "functionStat.json");
+
+    }
+
+    public static void updateFStatistic(Fstat functionStatistic) {
+        fStatistics.add(functionStatistic);
+        Gson gson = new Gson();
+
+        String json = gson.toJson(fStatistics);
+//        System.out.println(json);
+        saveStatistic(json, "fStat.json");
 
     }
 

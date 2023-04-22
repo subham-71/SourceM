@@ -17,12 +17,13 @@ public class ApiGateway {
         try {
             URL url = new URL(api_url + api_endpoint);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
 
             OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
-            writer.write(jsonData);
+            String jsonWithHeader = "{\"data\": " + jsonData + "}";
+            writer.write(jsonWithHeader);
             writer.flush();
 
             if (conn.getResponseCode() != 200) {
@@ -34,4 +35,5 @@ public class ApiGateway {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
 }
