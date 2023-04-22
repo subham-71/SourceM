@@ -3,16 +3,16 @@
     "exceptionClass": "org.example.MyException",
     "functionName": "test",
     "timestamps": [
-      "2023-04-13T18:49:46.236968700",
-      "2023-04-13T18:49:46.385966900",
-      "2023-04-13T18:49:46.505971100"
+      "2023-04-14T15:51:36.091958600",
+      "2023-04-14T15:51:36.211747400",
+      "2023-04-14T15:51:46.303750900"
     ]
   },
   {
     "exceptionClass": "java.lang.ArithmeticException",
     "functionName": "testThrow",
     "timestamps": [
-      "2023-04-13T18:49:46.286969100"
+      "2023-04-14T15:51:36.138694800"
     ]
   }
 ]
