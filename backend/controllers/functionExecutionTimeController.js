@@ -1,6 +1,6 @@
 'use strict';
 
-const firebase = require('../db');
+const firestore = require('../db');
 const Function = require('../models/function');
 
 
@@ -31,6 +31,7 @@ const addFunctionExecutionTime = async (req, res, next) => {
 
 const getAllFunctionExecutionTimes = async (req, res, next) => {
     try {
+
         const data = await firestore.collection('Application').doc('appId').collection('Function').get();
         const functionArray = [];
         if(data.empty) {
