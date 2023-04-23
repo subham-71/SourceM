@@ -24,9 +24,8 @@ function Dashboard() {
   // useEffect(() => {
   //   const getApplicationData = async () => {
   //     try {
-  //       const response = await fetch('http://some_url');
-  //       const jsonData = await response.json();
-  //       setApplicationData(jsonData);
+  //       const data = await db.collection('Client').doc(currentUser.uid).get()
+  //       setApplicationData(data.data().applications)  
   //     }
   //     catch (error) {
   //       console.error(error.message);
@@ -57,11 +56,11 @@ function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {applicationData.map((data) => (
-                    <tr key={data.id} className='border-b dark:border-neutral-500'>
-                      <td class=" px-6 py-4 whitespace-nowrap">{data.id}</td>
+                  {applicationData.map((data, id) => (
+                    <tr key={id+1} className='border-b dark:border-neutral-500'>
+                      <td class=" px-6 py-4 whitespace-nowrap">{id+1}</td>
                       <td class=" px-6 py-4 whitespace-nowrap">{data.applicationName}</td>
-                      <td class=" px-6 py-4 whitespace-nowrap">{data.status}</td>
+                      <td class=" px-6 py-4 whitespace-nowrap">{"Active"}</td>
                       <td class=" px-6 py-4 whitespace-nowrap">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.applicationName)}>
                           View Functions
