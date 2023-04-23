@@ -1,6 +1,6 @@
 'use strict';
 
-const firebase = require('../db');
+const firestore = require('../db');
 const Function = require('../models/function');
 
 
@@ -31,6 +31,7 @@ const addFunctionExecutionTime = async (req, res, next) => {
 
 const getAllFunctionExecutionTimes = async (req, res, next) => {
     try {
+
         const data = await firestore.collection('Application').doc('appId').collection('Function').get();
         const functionArray = [];
         if(data.empty) {
@@ -66,32 +67,32 @@ const getFunctionExecutionTime = async (req, res, next) => {
     }
 }
 
-// const updateFunctionExecutionTime = async (req, res, next) => {
-//     try {
-//         const id = req.params.id;
-//         const data = req.body;
-//         const func =  await firestore.collection('functions').doc(id);
-//         await func.update(data);
-//         res.send('Record updated successfuly');        
-//     } catch (error) {
-//         res.status(400).send(error.message);
-//     }
-// }
+const updateFunctionExecutionTime = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const func =  await firestore.collection('functions').doc(id);
+        await func.update(data);
+        res.send('Record updated successfuly');        
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
 
-// const deleteFunctionExecutionTime = async (req, res, next) => {
-//     try {
-//         const id = req.params.id;
-//         await firestore.collection('functions').doc(id).delete();
-//         res.send('Record deleted successfuly');
-//     } catch (error) {
-//         res.status(400).send(error.message);
-//     }
-// }
+const deleteFunctionExecutionTime = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await firestore.collection('functions').doc(id).delete();
+        res.send('Record deleted successfuly');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
 
 module.exports = {
     addFunctionExecutionTime,
     getAllFunctionExecutionTimes,
     getFunctionExecutionTime,
-    // updateFunctionExecutionTime,
-    // deleteFunctionExecutionTime
+    updateFunctionExecutionTime,
+    deleteFunctionExecutionTime
 }

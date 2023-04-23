@@ -1,10 +1,12 @@
-'use strict';
+//'use strict';
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const config = require('./config');
 const execTime = require('./routes/execution-time');
+const exceptionThrow = require('./routes/exception-throw');
+const pathCount = require('./routes/path-counter');
+const functionCycle = require('./routes/funcn-cycle');
 
 const app = express();
 
@@ -13,7 +15,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/exec-time', execTime.routes);
+app.use('/exception-throw', exceptionThrow.routes);
+app.use('/path-counter', pathCount.routes);
+app.use('/function-cycle', functionCycle.routes);
 
-
-
-app.listen(config.port, () => console.log('App is listening on url http://localhost:' + config.port));
+app.listen(8000, () => console.log('App is listening on url http://localhost:' + 8000));

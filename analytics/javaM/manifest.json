@@ -1,0 +1,17 @@
+{
+  "packageName" : "org.example",
+  "profilerConfig": {
+    "enabled": true,
+    "interval": 1000,
+    "classes": [
+      "org.example.testpack.TestClassExcluded",
+      "org.example.TestClassIncluded"
+    ]
+  },
+  "securityConfig": {
+    "enabled": true,
+    "classes": [
+      "org.example.testpack.*"
+    ]
+  }
+}

@@ -1,47 +1,27 @@
 [
   {
-    "functionName": "main",
-    "startTime": 283149094454300,
-    "endTime": 283149458310800,
+    "functionName": "org.example.TestClassInclude.testFunction",
+    "startTime": 49932089042500,
+    "endTime": 49932221643400,
     "children": [
       {
-        "functionName": "test",
-        "startTime": 283149169033000,
-        "endTime": 283149188476900,
+        "functionName": "org.example.testpack.TestClassExclude.testFunction",
+        "startTime": 49932089852900,
+        "endTime": 49932089961200,
         "children": []
       },
       {
-        "functionName": "testThrow",
-        "startTime": 283149234075300,
-        "endTime": 283149235853100,
+        "functionName": "org.example.TestClassInclude.testFunction",
+        "startTime": 49932219802500,
+        "endTime": 49932219839100,
         "children": []
-      },
-      {
-        "functionName": "testA",
-        "startTime": 283149287076800,
-        "endTime": 283149335896700,
-        "children": [
-          {
-            "functionName": "test",
-            "startTime": 283149333111000,
-            "endTime": 283149334949000,
-            "children": []
-          }
-        ]
-      },
-      {
-        "functionName": "testA",
-        "startTime": 283149400328200,
-        "endTime": 283149456775900,
-        "children": [
-          {
-            "functionName": "test",
-            "startTime": 283149453210700,
-            "endTime": 283149455208600,
-            "children": []
-          }
-        ]
       }
     ]
+  },
+  {
+    "functionName": "org.example.TestClassInclude.testFunction",
+    "startTime": 49932226448100,
+    "endTime": 49932226482800,
+    "children": []
   }
 ]

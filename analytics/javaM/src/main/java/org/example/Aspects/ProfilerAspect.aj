@@ -10,6 +10,7 @@ import java.util.Stack;
 public aspect ProfilerAspect extends BaseAspect {
     static Stack<FunctionStatistic> callStack = new Stack<>();
     Stack<String> methodNameStack = new Stack<>( );
+    long startTime = 0;
 
     pointcut profile(): execution(* *(..));
 
@@ -32,7 +33,6 @@ public aspect ProfilerAspect extends BaseAspect {
         methodNameStack.push(thisJoinPoint.getSignature().getName( ));
         FunctionStatistic functionStatistic = new FunctionStatistic(
             thisJoinPoint.getSignature().getName(), System.nanoTime());
-//        System.out.println("Calling function: " + functionStatistic.functionName);
         callStack.push(functionStatistic);
     }
 
@@ -43,13 +43,15 @@ public aspect ProfilerAspect extends BaseAspect {
         methodNameStack.pop();
         FunctionStatistic functionStatistic = callStack.pop();
         functionStatistic.endTime = System.nanoTime();
-//        System.out.println("Ending function: " + functionStatistic.functionName);
         if (!callStack.isEmpty()) {
             callStack.peek().children.add(functionStatistic);
         } else {
-            DataStore.addFunctionStatistic(functionStatistic);
-//            System.out.println(functionStatistic.toString());
-//            System.out.println(pathCounter);
+            DataStore.updateFunctionStatistic(functionStatistic);
+        }
+
+        if (System.nanoTime() - startTime > 10 * 1e9) {
+            DataStore.updateFunctionStatistic(callStack.firstElement());
+            startTime = System.nanoTime();
         }
     }
 
@@ -60,7 +62,6 @@ public aspect ProfilerAspect extends BaseAspect {
         methodNameStack.pop();
         FunctionStatistic functionStatistic = callStack.pop();
         functionStatistic.endTime = System.nanoTime();
-//        System.out.println("Ending function: " + functionStatistic.functionName);
         if (!callStack.isEmpty()) {
             callStack.peek().children.add(functionStatistic);
         } else {

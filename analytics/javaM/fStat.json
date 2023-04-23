@@ -1,0 +1,26 @@
+[
+  {
+    "name": "org.example.testpack.TestClassExclude.testFunction",
+    "depth": 1,
+    "start_time": 49932089862600,
+    "end_time":   49932089975000
+  },
+  {
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 1,
+    "start_time": 49932219810600,
+    "end_time":   49932219841300
+  },
+  {
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 0,
+    "start_time": 49932089596100,
+    "end_time":   49932224436100
+  },
+  {
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 0,
+    "start_time": 49932226455500,
+    "end_time":   49932228405200
+  }
+]

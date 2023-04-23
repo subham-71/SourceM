@@ -20,7 +20,7 @@ const addPathCounter = async (req) => {
         }
 }
 
-const getAllPathCounters = async (req, res, next) => {
+const getAllPathCounters = async (req, res) => {
         await firestore.collection('Application').doc('appId').collection('Path Count').get().data().forEach(doc => {
                 res.send(doc.data());
         });
