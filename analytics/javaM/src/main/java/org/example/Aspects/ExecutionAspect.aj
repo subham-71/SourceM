@@ -24,8 +24,8 @@ public aspect ExecutionAspect extends BaseAspect {
 
         tempTime -= System.nanoTime();
 
-        DataStore.incrementExecutionCounter(methodName);
         executionTimer.put(methodName, tempTime);
+        DataStore.incrementExecutionCounter(methodName);
     }
 
     after() returning(): recordTimeAfter() && !exclude() {
@@ -34,7 +34,7 @@ public aspect ExecutionAspect extends BaseAspect {
 
         tempTime += System.nanoTime();
 
-        DataStore.logExecutionTime(methodName, tempTime);
         executionTimer.put(methodName, tempTime);
+        DataStore.logExecutionTime(methodName, tempTime);
     }
 }

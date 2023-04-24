@@ -17,21 +17,20 @@ public class Main {
         }
     }
 
-    public static void test() {
-        try {
-            throw new MyException("Exception");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public static void test() throws MyException {
+        throw new MyException("Exception");
     }
 
     public static void testA() {
         System.out.println("Pratham, this is not funny");
-        test();
+        try {
+            test();
+        } catch (MyException e) {
+            System.out.println("Exception");
+        }
     }
 
     public static void main(String[] args) {
-        test();
         int ans = testThrow(12, 0);
 
         TestClassInclude testClassInclude = new TestClassInclude( );

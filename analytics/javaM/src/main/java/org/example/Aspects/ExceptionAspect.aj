@@ -9,17 +9,17 @@ public aspect ExceptionAspect extends BaseAspect {
 
     pointcut exception(): execution(* *(..) throws Exception) || execution(* *(..));
 
-    after() throwing (Exception e): exception() {
+    after() throwing (Exception e): exception() && !exclude() {
         ArrayList<String> exceptions = new ArrayList<>();
         exceptions.add(e.getClass().getName());
-        exceptions.add(thisJoinPoint.getSignature().getName());
+        exceptions.add(thisJoinPoint.getSignature().toString());
         DataStore.logException(exceptions);
     }
 
     before(Exception e): handledException(e) {
         ArrayList<String> exceptions = new ArrayList<>();
         exceptions.add(e.getClass().getName());
-        exceptions.add(thisEnclosingJoinPointStaticPart.getSignature().getName());
+        exceptions.add(thisEnclosingJoinPointStaticPart.getSignature().toString());
         DataStore.logException(exceptions);
     }
 }
