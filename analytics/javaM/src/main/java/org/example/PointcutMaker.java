@@ -17,6 +17,7 @@ class SecurityConfig {
 }
 
 class Config {
+    String app_id;
     String packageName;
     ProfilerConfig profilerConfig;
     SecurityConfig securityConfig;

@@ -8,7 +8,7 @@ const addPathCounter = async (req) => {
         const {data} = req.body;
         for (let i = 0; i < data.length; i++) {
                 
-                if (await firestore.collection('Application').doc('appId').collection('Path Count').where("caller", "==", data[i]["caller"]).where("callee", "==", data[i]["callee"]).get().data().empty) {
+                if (await firestore.collection('Application').doc('appId').collection('Path Count').where("caller", "==", data[i]["caller"]).where("callee", "==", data[i]["callee"]).get()) {
                         await firestore.collection('clientId').doc('applicationId').collection('Path Count').doc().set(data[i]);
                 }
                 else {

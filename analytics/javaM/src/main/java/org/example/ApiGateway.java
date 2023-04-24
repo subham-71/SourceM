@@ -8,9 +8,11 @@ import java.net.URL;
 
 public class ApiGateway {
     final String api_url;
+    final String app_id;
 
     public ApiGateway(String url) {
         this.api_url = url;
+        this.app_id = "test";
     }
 
     public void send(String api_endpoint, String jsonData) {
@@ -23,7 +25,7 @@ public class ApiGateway {
 
             OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
             String jsonWithHeader = "{\"data\": " + jsonData + "}";
-            System.out.println(jsonWithHeader);
+//            System.out.println(jsonWithHeader);
             writer.write(jsonWithHeader);
             writer.flush();
 

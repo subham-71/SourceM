@@ -7,23 +7,30 @@ const Function = require('../models/function');
 const addFunctionExecutionTime = async (req, res, next) => {
     try {
         const {data} = req.body;
+        // console.log(data.length);
         for (let i = 0; i < data.length; i++) {
-            const functStat = await firestore.collection('Application').doc('appId').collection('Function').doc(data[i]["functionName"]).get().data();
-            
+            const functStat = await firestore.collection('Application').doc('appId').collection('Function').doc(data[i]["functionName"]).get();
             if (functStat.exists) {
-                let count = functStat["executionCount"];
-                let avg = functStat["timeExecuted"];
-                count += data["executionCount"];
-                avg += data["timeExecuted"];
+
+                let count = functStat.data()["executionCount"];
+                let avg = functStat.data()["timeExecuted"];
+                count += data[i]["executionCount"];
+                avg += data[i]["timeExecuted"];
                 await firestore.collection('Application').doc('appId').collection('Function').doc(data[i]["functionName"]).set({
                     "executionCount": count,
                     "timeExecuted": avg
                 });
             }
             else {
-                await firestore.collection('Application').doc('appId').collection('Function').doc(data[i]["functionName"]).set(data[i]);
+                console.log(data[i]);
+                await firestore.collection('Application').doc('appId').collection('Function').doc(data[i]["functionName"]).set({
+                    "executionCount": data[i]["executionCount"],
+                    "timeExecuted": data[i]["timeExecuted"]
+                });
             }
         }
+
+        res.status(200).send('Record saved successfuly');
     } catch (error) {
         res.status(400).send(error.message);
     }
