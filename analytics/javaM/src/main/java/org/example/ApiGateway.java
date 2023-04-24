@@ -17,18 +17,19 @@ public class ApiGateway {
         try {
             URL url = new URL(api_url + api_endpoint);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("PUT");
+            conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
 
             OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
             String jsonWithHeader = "{\"data\": " + jsonData + "}";
+            System.out.println(jsonWithHeader);
             writer.write(jsonWithHeader);
             writer.flush();
 
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode());
+                    + conn.getResponseCode() + "\n" + conn.getResponseMessage());
             }
 
         } catch (Exception e) {

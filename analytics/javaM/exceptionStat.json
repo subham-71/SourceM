@@ -1,18 +1,1 @@
-[
-  {
-    "exceptionClass": "org.example.MyException",
-    "functionName": "test",
-    "timestamps": [
-      "2023-04-14T15:51:36.091958600",
-      "2023-04-14T15:51:36.211747400",
-      "2023-04-14T15:51:46.303750900"
-    ]
-  },
-  {
-    "exceptionClass": "java.lang.ArithmeticException",
-    "functionName": "testThrow",
-    "timestamps": [
-      "2023-04-14T15:51:36.138694800"
-    ]
-  }
-]
+[{"exceptionClass":"org.example.MyException","functionName":"test","timestamps":["2023-04-24T18:21:08.886108500","2023-04-24T18:21:10.525320400","2023-04-24T18:21:11.097611700"]},{"exceptionClass":"java.lang.ArithmeticException","functionName":"testThrow","timestamps":["2023-04-24T18:21:08.893106400"]}]

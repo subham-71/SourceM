@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class DataStore {
     static Gson gson = new Gson();
 
-    static ApiGateway apiGateway = new ApiGateway("http://url");
+    static ApiGateway apiGateway = new ApiGateway("https://sourcem.onrender.com/");
     static ArrayList<FunctionStatistic> functionStatistics = new ArrayList<>();
     static ArrayList<Fstat> fStatistics = new ArrayList<>();
     static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
@@ -73,6 +73,9 @@ public class DataStore {
         String json = gson.toJson(executionCounter.values());
 
         saveStatistic(json, "executionStat.json");
+        if (executionCounter.size() > 5) {
+            apiGateway.send("exec-time/add-func-exec/", json);
+        }
     }
 
     public static void logException(ArrayList<String> exceptions) {
