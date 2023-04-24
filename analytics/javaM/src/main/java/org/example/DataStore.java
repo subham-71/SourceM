@@ -58,6 +58,10 @@ public class DataStore {
         String json = gson.toJson(pathCounter.values());
 
         saveStatistic(json, "pathStat.json");
+        if (pathCounter.size() >= 5) {
+            apiGateway.send("path-counter/add-path-counter/", json);
+            pathCounter.clear();
+        }
     }
 
     public static void incrementExecutionCounter(String functionName) {
@@ -69,6 +73,11 @@ public class DataStore {
     }
 
     public static void logExecutionTime(String functionName, long time) {
+        if (executionCounter.containsKey(functionName)) {
+            executionCounter.get(functionName).incrementCount();
+        } else {
+            executionCounter.put(functionName, new ExecutionStatistic(functionName));
+        }
         executionCounter.get(functionName).addTime(time);
         String json = gson.toJson(executionCounter.values());
 
@@ -89,9 +98,7 @@ public class DataStore {
         String json = gson.toJson(exceptionMap.values());
 
         saveStatistic(json, "exceptionStat.json");
-        if (exceptionMap.size() > 5) {
-            apiGateway.send("exception/add-exception/", json);
-            exceptionMap.clear();
-        }
+        apiGateway.send("exception-throw/add-func-exception/", json);
+        exceptionMap.clear();
     }
 }

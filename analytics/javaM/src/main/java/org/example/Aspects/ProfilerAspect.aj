@@ -21,7 +21,7 @@ public aspect ProfilerAspect extends BaseAspect {
             String parentName = methodNameStack.peek();
             ArrayList<String> methodEdge = new ArrayList<>();
             methodEdge.add(parentName);
-            methodEdge.add(thisJoinPoint.getSignature().getName());
+            methodEdge.add(thisJoinPoint.getSignature().toString());
             DataStore.incrementPath(methodEdge);
             if (!pathCounter.containsKey(methodEdge)) {
                 pathCounter.put(methodEdge, 1);
@@ -30,9 +30,9 @@ public aspect ProfilerAspect extends BaseAspect {
             }
 
         }
-        methodNameStack.push(thisJoinPoint.getSignature().getName( ));
+        methodNameStack.push(thisJoinPoint.getSignature().toString( ));
         FunctionStatistic functionStatistic = new FunctionStatistic(
-            thisJoinPoint.getSignature().getName(), System.nanoTime());
+            thisJoinPoint.getSignature().toString(), System.nanoTime());
         callStack.push(functionStatistic);
     }
 

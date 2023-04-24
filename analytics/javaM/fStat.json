@@ -1,1 +1,92 @@
-[{"name":"org.example.testpack.TestClassExclude.testFunction","depth":1,"start_time":78132775769200,"end_time":78132782845800},{"name":"org.example.TestClassInclude.testFunction","depth":1,"start_time":78132784917800,"end_time":78135086800600},{"name":"org.example.TestClassInclude.testFunction","depth":0,"start_time":78132772781500,"end_time":78135806635700},{"name":"org.example.TestClassInclude.testFunction","depth":0,"start_time":78135808648000,"end_time":78136473930700}]
+[
+  {
+    "parent": "org.example.Main.main",
+    "parent_id": 0,
+    "call_id": 1,
+    "name": "org.example.Main.testThrow",
+    "depth": 1,
+    "start_time": 98184658238400,
+    "end_time": 98184816858600
+  },
+  {
+    "parent": "org.example.TestClassInclude.testFunction",
+    "parent_id": 2,
+    "call_id": 3,
+    "name": "org.example.testpack.TestClassExclude.testFunction",
+    "depth": 2,
+    "start_time": 98184826993700,
+    "end_time": 98184827062800
+  },
+  {
+    "parent": "org.example.TestClassInclude.testFunction",
+    "parent_id": 2,
+    "call_id": 4,
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 2,
+    "start_time": 98184830754900,
+    "end_time": 98184830802500
+  },
+  {
+    "parent": "org.example.Main.main",
+    "parent_id": 0,
+    "call_id": 2,
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 1,
+    "start_time": 98184825395200,
+    "end_time": 98184833274000
+  },
+  {
+    "parent": "org.example.Main.main",
+    "parent_id": 0,
+    "call_id": 5,
+    "name": "org.example.TestClassInclude.testFunction",
+    "depth": 1,
+    "start_time": 98185752339400,
+    "end_time": 98185752425400
+  },
+  {
+    "parent": "org.example.Main.testA",
+    "parent_id": 6,
+    "call_id": 7,
+    "name": "org.example.Main.test",
+    "depth": 2,
+    "start_time": 98185761164100,
+    "end_time": 98185761234000
+  },
+  {
+    "parent": "org.example.Main.main",
+    "parent_id": 0,
+    "call_id": 6,
+    "name": "org.example.Main.testA",
+    "depth": 1,
+    "start_time": 98185759690400,
+    "end_time": 98186082337200
+  },
+  {
+    "parent": "org.example.Main.testA",
+    "parent_id": 8,
+    "call_id": 9,
+    "name": "org.example.Main.test",
+    "depth": 2,
+    "start_time": 98186894923900,
+    "end_time": 98186894945900
+  },
+  {
+    "parent": "org.example.Main.main",
+    "parent_id": 0,
+    "call_id": 8,
+    "name": "org.example.Main.testA",
+    "depth": 1,
+    "start_time": 98186892813200,
+    "end_time": 98187187461900
+  },
+  {
+    "parent": "None",
+    "parent_id": -1,
+    "call_id": 0,
+    "name": "org.example.Main.main",
+    "depth": 0,
+    "start_time": 98184637090100,
+    "end_time": 98187193299700
+  }
+]

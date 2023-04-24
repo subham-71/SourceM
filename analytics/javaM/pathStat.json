@@ -1,1 +1,1 @@
-[{"caller":"main","callee":"testFunction","callCount":2},{"caller":"main","callee":"testA","callCount":2},{"caller":"main","callee":"test","callCount":1},{"caller":"testA","callee":"test","callCount":2},{"caller":"main","callee":"testThrow","callCount":1},{"caller":"testFunction","callee":"testFunction","callCount":2}]
+[{"caller":"void org.example.Main.main(String[])","callee":"void org.example.Main.testA()","callCount":2},{"caller":"void org.example.Main.testA()","callee":"void org.example.Main.test()","callCount":2}]

@@ -1,9 +1,7 @@
 package org.example;
 
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ApiGateway {
@@ -12,7 +10,7 @@ public class ApiGateway {
 
     public ApiGateway(String url) {
         this.api_url = url;
-        this.app_id = "test";
+        this.app_id = "appId2";
     }
 
     public void send(String api_endpoint, String jsonData) {
@@ -24,14 +22,15 @@ public class ApiGateway {
             conn.setDoOutput(true);
 
             OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
-            String jsonWithHeader = "{\"data\": " + jsonData + "}";
+            String jsonWithHeader = "{\"data\": " + jsonData + ", \"appId\": \"" + app_id + "\"}";
 //            System.out.println(jsonWithHeader);
             writer.write(jsonWithHeader);
             writer.flush();
 
             if (conn.getResponseCode() != 200) {
+                System.out.println(jsonWithHeader);
                 throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode() + "\n" + conn.getResponseMessage());
+                    + conn.getResponseCode() + "\n" + conn.getResponseMessage() + "\n" + api_endpoint);
             }
 
         } catch (Exception e) {
