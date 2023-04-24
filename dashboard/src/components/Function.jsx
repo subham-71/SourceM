@@ -3,7 +3,7 @@ import FunctionCard from './FunctionCard.jsx'
 import {useAuth} from '../contexts/AuthContext'
 import {db} from '../config/firebaseConfig.jsx'
 
-function Function() {
+function Function(props) {
   const [functionData, setFunctionData] = useState([{
     functionName: "functionName",
     executionCount: "executionCount",
@@ -13,10 +13,11 @@ function Function() {
 
   const getFunctionData = async () => {
     try {
-      const data = await db.collection('Application').doc("dkfjksdfjosd").collection("Function").get()
-      // map the function
-      const functionData = data.docs.map(doc => (doc.id,doc.data()))
-      console.log(functionData)
+      const functionData = await http.get(`http://localhost:8000/all-func-exec`,{
+        body: {
+          appId: "appId"
+        }
+      })
       setFunctionData(functionData)
     }
     catch (error) {
