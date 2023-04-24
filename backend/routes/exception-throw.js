@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/add-func-exception', addFunctionException);
 router.post('/all-func-exception', getAllFunctionException);
-router.get('/func-exec/:id', getFunctionException);
+router.post('/func-exec', getFunctionException);
 
 module.exports = {
     routes: router
