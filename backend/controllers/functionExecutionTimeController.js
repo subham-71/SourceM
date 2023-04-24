@@ -37,6 +37,7 @@ const addFunctionExecutionTime = async (req, res, next) => {
 }
 
 const getAllFunctionExecutionTimes = async (req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*')
     try {
         const appId = req.body.appId;
         const data = await firestore.collection('Application').doc(appId).collection('Function').get();

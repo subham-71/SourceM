@@ -7,7 +7,7 @@ const {addFunctionException,
 const router = express.Router();
 
 router.post('/add-func-exception', addFunctionException);
-router.get('/all-func-exception/:id', getAllFunctionException);
+router.post('/all-func-exception', getAllFunctionException);
 router.get('/func-exec/:id', getFunctionException);
 
 module.exports = {

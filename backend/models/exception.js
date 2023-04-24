@@ -1,8 +1,8 @@
 class Exception {
-        constructor(funcName, exceptionName, timestamp) {
+        constructor(funcName, exceptionName, timestamps) {
                 this.funcName = funcName;
                 this.exceptionName = exceptionName;
-                this.timestamp = timestamp;
+                this.timestamps = timestamps;
         }
     }
     

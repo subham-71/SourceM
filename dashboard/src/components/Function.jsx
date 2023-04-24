@@ -13,11 +13,16 @@ function Function(props) {
 
   const getFunctionData = async () => {
     try {
-      const functionData = await http.get(`http://localhost:8000/all-func-exec`,{
-        body: {
-          appId: "appId"
-        }
+      const response = await fetch('http://localhost:8000/exec-time/all-func-exec',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "appId": "appId"
+        }),
       })
+      const functionData = await response.json()
       setFunctionData(functionData)
     }
     catch (error) {
@@ -36,10 +41,10 @@ function Function(props) {
         functionData.map((data, index) => {
           return (
             <FunctionCard
-              key={index}
-              functionName={data.functionName}
-              executionCount = {data.executionCount}
-              timeExecuted = {data.timeExecuted}
+              key={index+1}
+              functionName={data.id}
+              executionCount = {data.functionName}
+              timeExecuted = {data.status}
             />
           )
         })
