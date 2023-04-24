@@ -7,5 +7,6 @@ public abstract aspect BaseAspect {
         || execution(* org.example.StatObjects.Fstat.*(..))
         || execution(* org.example.StatObjects.PathStatistic.*(..))
         || execution(* org.example.StatObjects.ExecutionStatistic.*(..))
-        || execution(* org.example.StatObjects.ExceptionStatistic.*(..));
+        || execution(* org.example.StatObjects.ExceptionStatistic.*(..))
+        || execution(* org.example.ApiGateway.*(..));
 }

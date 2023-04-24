@@ -1,0 +1,19 @@
+{
+  "name": "cs305-t07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subham-71/CS305-T07.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subham-71/CS305-T07/issues"
+  },
+  "homepage": "https://github.com/subham-71/CS305-T07#readme"
+}

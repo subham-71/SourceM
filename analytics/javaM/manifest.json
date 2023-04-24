@@ -1,4 +1,5 @@
 {
+  "app_id": "test",
   "packageName" : "org.example",
   "profilerConfig": {
     "enabled": true,

@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class DataStore {
     static Gson gson = new Gson();
 
-    static ApiGateway apiGateway = new ApiGateway("http://url");
+    static ApiGateway apiGateway = new ApiGateway("http://localhost:8000/");
     static ArrayList<FunctionStatistic> functionStatistics = new ArrayList<>();
     static ArrayList<Fstat> fStatistics = new ArrayList<>();
     static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
@@ -73,6 +73,10 @@ public class DataStore {
         String json = gson.toJson(executionCounter.values());
 
         saveStatistic(json, "executionStat.json");
+        if (executionCounter.size() > 5) {
+            apiGateway.send("exec-time/add-func-exec/", json);
+            executionCounter.clear();
+        }
     }
 
     public static void logException(ArrayList<String> exceptions) {
@@ -85,5 +89,9 @@ public class DataStore {
         String json = gson.toJson(exceptionMap.values());
 
         saveStatistic(json, "exceptionStat.json");
+        if (exceptionMap.size() > 5) {
+            apiGateway.send("exception/add-exception/", json);
+            exceptionMap.clear();
+        }
     }
 }
