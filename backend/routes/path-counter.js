@@ -6,8 +6,8 @@ const {
 
 const router = express.Router();
 
-// router.post('/add-path-counter', addPathCounter);
-// router.get('/all-path-counters', getAllPathCounters);
+router.post('/add-path-counter', addPathCounter);
+router.get('/all-path-counters', getAllPathCounters);
 
 
 module.exports = {

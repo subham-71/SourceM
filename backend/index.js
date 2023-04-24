@@ -19,4 +19,8 @@ app.use('/exception-throw', exceptionThrow.routes);
 app.use('/path-counter', pathCount.routes);
 app.use('/function-cycle', functionCycle.routes);
 
+app.get('/', (req,res) => {
+    res.send('Welcome to the Source M App');
+});
+
 app.listen(8000, () => console.log('App is listening on url http://localhost:' + 8000));
