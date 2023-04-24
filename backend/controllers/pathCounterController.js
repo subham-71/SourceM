@@ -1,8 +1,7 @@
 'use strict';
 
-const firebase = require('../db');
-// const Function = require('../models/function');
-const firestore = firebase.firestore();
+const firestore = require('../db');
+const Function = require('../models/function');
 
 
 const addPathCounter = async (req) => {
@@ -20,7 +19,7 @@ const addPathCounter = async (req) => {
         }
 }
 
-const getAllPathCounters = async (req, res, next) => {
+const getAllPathCounters = async (req, res) => {
         await firestore.collection('Application').doc('appId').collection('Path Count').get().data().forEach(doc => {
                 res.send(doc.data());
         });

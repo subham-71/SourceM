@@ -5,17 +5,20 @@ import Signup from "../components/auth/Signup.jsx";
 import Dashboard from "../components/Dashboard.jsx";
 import Exception from "../components/Exception.jsx";
 import Function from "../components/Function.jsx";
+import ForgotPassword from "../components/auth/ForgotPassword.jsx";
 
 
 const Router = () => {
     return (
         <>
             <Routes>
+                <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/exception" element={<Exception />} />
                 <Route path="/function" element={<Function />} />
+                <Route path="/forgot-password" element={<ForgotPassword/>} />
             </Routes>
         </>
     );
