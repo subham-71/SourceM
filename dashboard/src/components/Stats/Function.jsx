@@ -4,6 +4,22 @@ import axios from "axios";
 import {useAuth} from '../../contexts/AuthContext.jsx'
 import {db} from '../../config/firebaseConfig.jsx'
 
+function TimeFormat(time){
+  if(time>1000 &&  time<1000000){
+    return (time/1000).toFixed(2) + "K"+"+"
+  }
+  else if(time>1000000 && time<1000000000){
+    return (time/1000000).toFixed(2) + "M"+"+"
+  }
+  else if(time>1000000000){
+    return (time/1000000000).toFixed(2) + "B"+"+"
+  }
+  else{
+    return time
+  }
+}
+
+
 function Function(props) {
 
   const { appId } = props;
@@ -26,54 +42,26 @@ function Function(props) {
             }
         })()
     }, [])
+  
+  
 
   return (
     <>
-      {
 
-        functionData.map((data, index) => {
+<div class="mt-10 p-10 grid grid-cols-2 gap-2">
+        {
+        functionData.map((data) => {
           return (
-
-            <div class="p-10 grid grid-cols-2 gap-2">
-        <div class="mx-auto bg-white rounded-lg md:p-8 dark:bg-gray-800" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
-              <dl class="grid grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 dark:text-white sm:p-8">
-                  <div class="flex flex-col text-center">
-                      <dt class="mb-2 text-3xl font-extrabold">data.executionTime</dt>
-                      <dd class="text-gray-500 dark:text-gray-400">Execution Time</dd>
-                  </div>
-                  <div class="flex flex-col text-center">
-                      <dt class="mb-2 text-3xl font-extrabold">100M+</dt>
-                      <dd class="text-gray-500 dark:text-gray-400">Function Calls</dd>
-                  </div>
-                  <div class="flex flex-col text-center">
-                      <dt class="mb-2 text-3xl font-extrabold">1000 GB </dt>
-                      <dd class="text-gray-500 dark:text-gray-400">Memory Consumption</dd>
-                  </div>
-              </dl>
-              {/* <div className="exception-card"> 
-                <ol class="items-center sm:flex"> */}
-{/*                   
-                    {
-                      exceptionData.map((data, index) => {
-                        return (
-                          <ExceptionCard
-                            key={index+1}
-                            functionName={data.exceptionClass}
-                            executionCount = {data.functionName}
-                            timeExecuted = {data.timestamps}
-                          />
-                        )
-                      })
-                    } */}
-
-                 {/* </ol>
-              </div> */}
+            <FunctionCard
+              functionName={data.functionName}
+              executionCount = {TimeFormat(data.executionCount)}
+              executionTime = {TimeFormat(data.executionTime)}
+            />
+            )
+          })
+        }
+  
         </div>
-       </div>
-          )
-        })
-      }
-     
     </>
   )
 }

@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-// import NavbarApp from './Navbars/NavbarApp.jsx'
 import { Sankey } from '../Graphs/Sankey.jsx'
 
-function ProgramFlow(props) {
+function ControlFlow(props) {
 
      const {appId} = props
 
@@ -18,4 +17,4 @@ function ProgramFlow(props) {
   )
 }
 
-export default ProgramFlow
+export default ControlFlow

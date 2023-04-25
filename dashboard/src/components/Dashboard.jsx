@@ -13,7 +13,7 @@ function Dashboard() {
   useEffect(() => {
     const getApplicationData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/application/get-client-app',{
+        const response = await fetch('https://sourcem.onrender.com/application/get-client-app',{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
