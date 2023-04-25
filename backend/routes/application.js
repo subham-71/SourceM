@@ -6,7 +6,7 @@ const {getClientApplications,
 const router = express.Router();
 
 router.post('/register', applicationRegister);
-router.get('/get-client-app', getClientApplications);
+router.post('/get-client-app', getClientApplications);
 
 module.exports = {
     routes: router
