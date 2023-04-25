@@ -1,9 +1,12 @@
 'use strict';
 
 const firestore = require('../db');
+const Application = require('../models/application');
+const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
+
         
 }
 
@@ -11,12 +14,15 @@ const getClientApplications = async (req, res) => {
         try {
                 const clientId = req.body.clientId;
                 const data = await firestore.collection("Client").doc(clientId).get();
-                const application = await firestore.collection("Application").get();
+                const application = await firestore.collection("Application").get()
+                
                 const applicationMap = {}
                 application.forEach((doc)=>{
+                        const id = doc.id
                         const docData = doc.data()
-                        application[doc.id] = {"Name":docData.name,"Status":docData.status}
-                })
+                        console.log(id, docData)
+                        applicationMap[id] = {"Name":docData.Name, "Status":docData.Status}
+                });
                 if (data.exists) {
                         const appData = data.data()["Application"];
                         const appFilterData = []
