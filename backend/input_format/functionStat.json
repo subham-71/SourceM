@@ -1,47 +1,92 @@
 [
   {
-    "functionName": "main",
-    "startTime": 283149094454300,
-    "endTime": 283149458310800,
-    "children": [
-      {
-        "functionName": "test",
-        "startTime": 283149169033000,
-        "endTime": 283149188476900,
-        "children": []
-      },
-      {
-        "functionName": "testThrow",
-        "startTime": 283149234075300,
-        "endTime": 283149235853100,
-        "children": []
-      },
-      {
-        "functionName": "testA",
-        "startTime": 283149287076800,
-        "endTime": 283149335896700,
-        "children": [
-          {
-            "functionName": "test",
-            "startTime": 283149333111000,
-            "endTime": 283149334949000,
-            "children": []
-          }
-        ]
-      },
-      {
-        "functionName": "testA",
-        "startTime": 283149400328200,
-        "endTime": 283149456775900,
-        "children": [
-          {
-            "functionName": "test",
-            "startTime": 283149453210700,
-            "endTime": 283149455208600,
-            "children": []
-          }
-        ]
-      }
-    ]
+    "parent": "void org.example.Main.main(String[])",
+    "parent_id": 0,
+    "call_id": 1,
+    "name": "int org.example.Main.testThrow(int, int)",
+    "depth": 1,
+    "start_time": 28060580928900,
+    "end_time": 28060596534800
+  },
+  {
+    "parent": "void org.example.TestClassInclude.testFunction(String)",
+    "parent_id": 2,
+    "call_id": 3,
+    "name": "void org.example.testpack.TestClassExclude.testFunction(String, String)",
+    "depth": 2,
+    "start_time": 28060606946000,
+    "end_time": 28060607038500
+  },
+  {
+    "parent": "void org.example.TestClassInclude.testFunction(String)",
+    "parent_id": 2,
+    "call_id": 4,
+    "name": "void org.example.TestClassInclude.testFunction(String, String)",
+    "depth": 2,
+    "start_time": 28060610490400,
+    "end_time": 28060610544000
+  },
+  {
+    "parent": "void org.example.Main.main(String[])",
+    "parent_id": 0,
+    "call_id": 2,
+    "name": "void org.example.TestClassInclude.testFunction(String)",
+    "depth": 1,
+    "start_time": 28060604948600,
+    "end_time": 28060613323100
+  },
+  {
+    "parent": "void org.example.Main.main(String[])",
+    "parent_id": 0,
+    "call_id": 5,
+    "name": "void org.example.TestClassInclude.testFunction(String, String)",
+    "depth": 1,
+    "start_time": 28060616246200,
+    "end_time": 28060616301600
+  },
+  {
+    "parent": "void org.example.Main.testA()",
+    "parent_id": 6,
+    "call_id": 7,
+    "name": "void org.example.Main.test()",
+    "depth": 2,
+    "start_time": 28060620822200,
+    "end_time": 28060620874800
+  },
+  {
+    "parent": "void org.example.Main.main(String[])",
+    "parent_id": 0,
+    "call_id": 6,
+    "name": "void org.example.Main.testA()",
+    "depth": 1,
+    "start_time": 28060619754000,
+    "end_time": 28060626466200
+  },
+  {
+    "parent": "void org.example.Main.testA()",
+    "parent_id": 8,
+    "call_id": 9,
+    "name": "void org.example.Main.test()",
+    "depth": 2,
+    "start_time": 28060632075600,
+    "end_time": 28060632097000
+  },
+  {
+    "parent": "void org.example.Main.main(String[])",
+    "parent_id": 0,
+    "call_id": 8,
+    "name": "void org.example.Main.testA()",
+    "depth": 1,
+    "start_time": 28060630804600,
+    "end_time": 28060638611200
+  },
+  {
+    "parent": "None",
+    "parent_id": -1,
+    "call_id": 0,
+    "name": "void org.example.Main.main(String[])",
+    "depth": 0,
+    "start_time": 28060557732500,
+    "end_time": 28060641572900
   }
 ]

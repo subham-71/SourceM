@@ -1,8 +1,8 @@
 class Function {
-    constructor(id, functionName, status ) {
-            this.id = id;
+    constructor(functionName, executionCount, executionTime ) {
+            this.executionCount = executionCount;
             this.functionName = functionName;
-            this.status = status;
+            this.executionTime = executionTime;
     }
 }
 

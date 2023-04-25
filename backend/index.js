@@ -7,6 +7,7 @@ const execTime = require('./routes/execution-time');
 const exceptionThrow = require('./routes/exception-throw');
 const pathCount = require('./routes/path-counter');
 const functionCycle = require('./routes/funcn-cycle');
+const application = require('./routes/application');
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use(bodyParser.json());
 app.use('/exec-time', execTime.routes);
 app.use('/exception-throw', exceptionThrow.routes);
 app.use('/path-counter', pathCount.routes);
-app.use('/function-cycle', functionCycle.routes);
+app.use('/funcn-cycle', functionCycle.routes);
+app.use('/application', application.routes);
 
 app.get('/', (req,res) => {
     res.send('Welcome to the Source M App');
