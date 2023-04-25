@@ -76,18 +76,21 @@ const getAllFunctionAllException = async (req, res) => {
         const exceptionArray = [];
         const data = await firestore.collection('Application').doc(appId).collection('Function').get();
         // .doc(id).collection('Exception').doc(exceptionId).get();
-            data.forEach(async (doc) => {
-                const dataEx = await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).collection('Exception').get();
-                dataEx.forEach(doc1 => {
-                    const excptn = new Exception(
-                        doc.id,
-                        doc1.id,
-                        doc1.data()["timestamps"]
-                    );
-                    exceptionArray.push(excptn);
-                });
+        for (let doc of data.docs) {
+        // for ( let i=0; i<data.docs.length; i++) {
+        //     let dd = doc.data();
+        //     console.log(dd);
+            const dataEx =  await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).collection('Exception').get();
+            dataEx.forEach(doc1 => {
+                const excptn = new Exception(
+                    doc.id,
+                    doc1.id,
+                    doc1.data()["timestamps"]
+                );
+                exceptionArray.push(excptn);
             });
-            res.send(exceptionArray)
+        };
+        res.send(exceptionArray)
     } catch (error) {
         res.status(400).send(error.message);
     }
