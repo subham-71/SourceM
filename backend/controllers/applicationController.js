@@ -6,27 +6,8 @@ const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
-        const appName = req.body.appName;
-        const appStatus = req.body.appStatus
-        let appId = "";
-        await firestore.collection('Application').add({
-                'Name': appName,
-                'Status': appStatus
-        }).then((docRef) => {
-                appId = docRef.id;
-        }).catch(
-                error => console.error("Error adding document: ", error)
-        );
 
-        const clientApp = await firestore.collection('Client').doc(clientId).get();
-        if (clientApp.exists) {
-                await firestore.collection('Client').doc(clientId).update({
-                        'Application': FieldValue.arrayUnion(appId)
-                });
-                res.send('Application Registered Successfully');
-        } else {
-                res.status(400).send('Client ID Invalid');
-        }
+        
 }
 
 const getClientApplications = async (req, res) => {
