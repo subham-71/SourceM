@@ -77,7 +77,7 @@ const getAllFunctionAllException = async (req, res) => {
         const data = await firestore.collection('Application').doc(appId).collection('Function').get();
         // .doc(id).collection('Exception').doc(exceptionId).get();
             data.forEach(async (doc) => {
-                const dataEx = await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).get();
+                const dataEx = await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).collection('Exception').get();
                 dataEx.forEach(doc1 => {
                     const excptn = new Exception(
                         doc.id,
