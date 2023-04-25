@@ -1,5 +1,5 @@
 import React from 'react'
-import sourceCode from '../assets/sourceCode.png'
+import sourceCode from '../../assets/sourceCode.png'
 
 function Navbar() {
   return (

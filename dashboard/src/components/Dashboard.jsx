@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Navbar from './Navbar.jsx'
+import Navbar from './Navbars/Navbar.jsx'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -34,7 +34,7 @@ function Dashboard() {
   }, [])
 
   const handleRedirect = (applicationName) => {
-    
+    navigate('/application', {state: {applicationId: applicationName}})
   }
 
   return (
