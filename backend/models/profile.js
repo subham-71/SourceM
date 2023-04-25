@@ -1,5 +1,5 @@
 class Profile {
-        constructor(_parent, _parent_id, _call_id, _name, _depth, _start_time, _end_time) {
+        constructor(parent, parent_id, call_id, name, depth, start_time, end_time) {
                 this.parent = parent;
                 this.parent_id = parent_id;
                 this.call_id = call_id;
@@ -10,4 +10,4 @@ class Profile {
         }
     }
     
-module.exports = Exception;
+module.exports = Profile;

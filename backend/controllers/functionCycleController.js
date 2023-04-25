@@ -1,6 +1,7 @@
 'use strict';
 
 const firestore = require('../db');
+const Profile = require('../models/profile');
 
 const addFunctionCycle = async (req, res, next) => {
         const data = req.body.data;
@@ -9,7 +10,7 @@ const addFunctionCycle = async (req, res, next) => {
                 for (let i = 0; i < data.length; i++) {
                         await firestore.collection('Application').doc(appId).collection('Profiler').doc().set(data[i]);
                 }
-                res.status(200).send('Record saved successfuly');
+                res.status(200).send('Record saved successfully');
         } catch (error) { 
                 res.status(400).send("Error in adding function cycle");
         }
@@ -21,7 +22,7 @@ const getFunctionCycle = async (req, res) => {
                 const funcCycle = await firestore.collection('Application').doc(appId).collection('Profiler').get();
                 const profileArray = [];
                 funcCycle.forEach(doc => {
-                        const profile = Profile(
+                        const profile = new Profile(
                                 doc.data()["parent"],
                                 doc.data()["parent_id"],
                                 doc.data()["call_id"],
