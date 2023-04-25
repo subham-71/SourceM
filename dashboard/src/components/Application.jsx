@@ -15,7 +15,6 @@ function Application() {
   const applicationId = state.applicationId
   
   console.log(applicationId)
-  const [applicationData, setApplicationData] = useState([])
   const [toggle, setToggle] = useState([0,1,0,0,0])
 
   const handleLogout = async () => {
@@ -27,20 +26,6 @@ function Application() {
       console.error(error.message);
     }
   }
-
-
-  useEffect(() => {
-    const getApplicationData = async () => {
-      try {
-        // const data = await db.collection('Client').doc(currentUser.uid).collection('Application').doc(applicationName).get()
-        // setApplicationData(data.data())  
-      }
-      catch (error) {
-        console.error(error.message);
-      }
-    }
-    getApplicationData();
-  }, [])
 
   return (
     <>

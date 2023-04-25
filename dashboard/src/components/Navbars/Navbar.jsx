@@ -26,7 +26,7 @@ function Navbar() {
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">sourceM</span>
         </a>
         <div class="flex justify-between md:order-last">
-            <button type="button" class="text-white bg-blue-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             onClick={()=>handleLogout()}>Logout</button>
         </div>
         

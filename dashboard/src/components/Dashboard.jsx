@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Navbar from './Navbars/Navbar.jsx'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { storage } from '../config/firebaseConfig.jsx'
 
 function Dashboard() {
 
@@ -41,7 +42,16 @@ function Dashboard() {
     <>
       <Navbar/>
       {' '}
-        <div class="overflow-hidden w-3/4 h-3/4 mx-auto my-auto mt-40">
+      
+        
+
+        <div class="overflow-hidden w-3/4 h-3/4 mx-auto my-auto"  style ={{marginTop : 100}}>
+        <div class="flex justify-end mb-3">
+            
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 mr-2 rounded" onClick={() => navigate('/upload')}>
+                 <span className='text-white text-xl font-black rounded-full px-1'>+</span> Upload New App
+            </button>
+        </div>
           <table class="min-w-full text-center text-sm font-light">
             <thead
               class="border-b bg-neutral-800 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
@@ -61,6 +71,9 @@ function Dashboard() {
                   <td class=" px-6 py-4 whitespace-nowrap">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
                       View Application
+                    </button>
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
+                      Analyze
                     </button>
                   </td>
                 </tr>
