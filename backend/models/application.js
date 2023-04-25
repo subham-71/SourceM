@@ -5,3 +5,5 @@ class Application{
         this.appStatus = appStatus;
     }
 }
+
+module.exports = Application;

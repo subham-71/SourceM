@@ -2,12 +2,13 @@
 
 const firestore = require('../db');
 const Application = require('../models/application');
+const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
         const appName = req.body.appName;
         const appStatus = req.body.appStatus
-        let appId;
+        let appId = "";
         await firestore.collection('Application').add({
                 'Name': appName,
                 'Status': appStatus
@@ -22,6 +23,7 @@ const applicationRegister = async(req,res) => {
                 await firestore.collection('Client').doc(clientId).update({
                         'Application': FieldValue.arrayUnion(appId)
                 });
+                res.send('Application Registered Successfully');
         } else {
                 res.status(400).send('Client ID Invalid');
         }
@@ -35,8 +37,10 @@ const getClientApplications = async (req, res) => {
                 
                 const applicationMap = {}
                 application.forEach((doc)=>{
+                        const id = doc.id
                         const docData = doc.data()
-                        application[doc.id] = {"Name":docData.name, "Status":docData.status}
+                        console.log(id, docData)
+                        applicationMap[id] = {"Name":docData.Name, "Status":docData.Status}
                 });
                 if (data.exists) {
                         const appData = data.data()["Application"];
