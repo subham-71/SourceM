@@ -3,7 +3,7 @@ import Navbar from './Navbar.jsx'
 import { useNavigate } from 'react-router-dom'
 import NavbarApp from './NavbarApp.jsx'
 
-function Application() {
+function Application(props) {
 
   const navigate = useNavigate()
 

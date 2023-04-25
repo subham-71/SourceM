@@ -4,7 +4,6 @@ const firestore = require('../db');
 
 const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
-
         
 }
 
