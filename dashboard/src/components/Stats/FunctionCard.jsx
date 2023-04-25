@@ -1,20 +1,23 @@
 import React, {useState, useEffect} from 'react'
 // import FunctionCard from './FunctionCard.jsx'
-import {useAuth} from '../contexts/AuthContext'
+import {useAuth} from '../../contexts/AuthContext'
 import ExceptionCard from './ExceptionCard.jsx'
 
 const functionCard = (props) => {
 
+    const { appId, functionName } = props;    
+
     const [exceptionData, setExceptionData] = useState([{
-    exceptionClass: "exceptionClass",
-    functionName: "functionName",
-    timestamps: "timestamps" 
+      "functionName" : functionName ,
+      "exceptionClass" : exceptionClass,
+      "timestamps" : timestamps
+  
   }])
   const {currentUser} = useAuth()
 
   const getExecptionData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/exception-throw/func-exec',{
+      const response = await fetch('https://sourcem.onrender.com/exception-throw/all-func-exception',{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
