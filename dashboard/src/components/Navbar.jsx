@@ -4,15 +4,21 @@ import sourceCode from '../assets/sourceCode.png'
 function Navbar() {
   return (
     <>
-        <div class="flex flex-wrap justify-between items-center mx-5 px-2 my-auto py-5">
-            <a class="flex items-center">
-                <img src={sourceCode} class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">SourceM</span>
-            </a>
-            <div class="flex-end items-end text-right mx-5">
-                <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">LogOut</a>
-            </div>
+                      
+      <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div class=" flex flex-wrap items-center justify-between mx-2 p-4">
+        <a href="https://flowbite.com/" class="flex items-center">
+            <img src={sourceCode} class="bg-white mx-3 ml-1" alt="sourceM Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">sourceM</span>
+        </a>
+        <div class="flex justify-between md:order-last">
+            <button type="button" class="text-white bg-blue-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
         </div>
+        
+        </div>
+      </nav>
+
+              
     </>
   )
 }

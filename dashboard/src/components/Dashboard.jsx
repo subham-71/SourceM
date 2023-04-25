@@ -1,39 +1,30 @@
 import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar.jsx'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 function Dashboard() {
-  // const applicationData = [
-  //   {
-  //     id: 1,
-  //     applicationName: 'Application 1',
-  //     status: 'Active',
-  //   },
-  //   {
-  //     id: 2,
-  //     applicationName : 'Application 2',
-  //     status: 'Active',
-  //   }
-  // ]
 
   const navigate = useNavigate()
 
-  const [applicationData, setApplicationData] = useState([{
-    id: 1,
-    applicationName: 'Application 1',
-    status: 'Active',
-  },
-  {
-    id: 2,
-    applicationName : 'Application 2',
-    status: 'Active',
-  }])
+  const {currentUser} = useAuth()
+  const [applicationData, setApplicationData] = useState([])
 
   useEffect(() => {
     const getApplicationData = async () => {
       try {
-        const data = await db.collection('Client').doc(currentUser.uid).get()
-        setApplicationData(data.data().applications)  
+        const response = await fetch('http://localhost:8000/application/get-client-app',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "clientId": currentUser.uid,
+        }),
+      })
+      const applicationData = await response.json()
+      console.log("applicationData",applicationData)
+      setApplicationData(applicationData)
       }
       catch (error) {
         console.error(error.message);
@@ -49,7 +40,8 @@ function Dashboard() {
   return (
     <>
       <Navbar/>
-        <div class="overflow-hidden w-3/4 h-3/4 mx-auto my-auto">
+      {' '}
+        <div class="overflow-hidden w-3/4 h-3/4 mx-auto my-auto mt-40">
           <table class="min-w-full text-center text-sm font-light">
             <thead
               class="border-b bg-neutral-800 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
@@ -64,11 +56,11 @@ function Dashboard() {
               {applicationData.map((data, id) => (
                 <tr key={id+1} className='border-b dark:border-neutral-500'>
                   <td class=" px-6 py-4 whitespace-nowrap">{id+1}</td>
-                  <td class=" px-6 py-4 whitespace-nowrap">{data.applicationName}</td>
-                  <td class=" px-6 py-4 whitespace-nowrap">{"Active"}</td>
+                  <td class=" px-6 py-4 whitespace-nowrap">{data.appName}</td>
+                  <td class=" px-6 py-4 whitespace-nowrap">{data.appStatus}</td>
                   <td class=" px-6 py-4 whitespace-nowrap">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.applicationName)}>
-                      View Functions
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
+                      View Application
                     </button>
                   </td>
                 </tr>

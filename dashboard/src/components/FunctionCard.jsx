@@ -39,7 +39,7 @@ const functionCard = (props) => {
     return (
 
         <>
-         <div class="p-10 grid grid-cols-3 gap-2">
+         <div class="p-10 grid grid-cols-2 gap-2">
         <div class="mx-auto bg-white rounded-lg md:p-8 dark:bg-gray-800" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
               <dl class="grid grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 dark:text-white sm:p-8">
                   <div class="flex flex-col text-center">
