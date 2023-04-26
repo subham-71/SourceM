@@ -1,10 +1,6 @@
-package org.example;
+package org.example.AOPDeps;
 
 import com.google.gson.Gson;
-import org.example.StatObjects.ExceptionStatistic;
-import org.example.StatObjects.ExecutionStatistic;
-import org.example.StatObjects.Fstat;
-import org.example.StatObjects.PathStatistic;
 
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
@@ -12,13 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataStore {
-    static boolean mainStatus = false;
-    static Gson gson = new Gson();
-    static ApiGateway apiGateway = new ApiGateway("https://sourcem.onrender.com/");
-    static ArrayList<Fstat> fStatistics = new ArrayList<>();
-    static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
-    static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
-    static HashMap<ArrayList<String>, ExceptionStatistic> exceptionMap = new HashMap<>();
+    public static boolean mainStatus = false;
+    public static Gson gson = new Gson();
+//  public   static ApiGateway apiGateway = new ApiGateway("https://sourcem.onrender.com/");
+    public static ApiGateway apiGateway = new ApiGateway("http://localhost:8000/");
+    public static ArrayList<Fstat> fStatistics = new ArrayList<>();
+    public static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
+    public static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
+    public static HashMap<ArrayList<String>, ExceptionStatistic> exceptionMap = new HashMap<>();
 
     public synchronized static void setMainStatus(boolean status) {
         if (status) {
@@ -27,7 +24,6 @@ public class DataStore {
             Thread apiThread = new Thread(() -> {
                 while (mainStatus) {
                     try {
-                        System.out.println("In the wrong place");
                         pushStatistic();
                         Thread.sleep(10000);
                     } catch (Exception e) {
@@ -37,11 +33,8 @@ public class DataStore {
                 pushStatistic();
             });
             apiThread.start();
-
-            System.out.println("Main started");
         } else {
             mainStatus = false;
-            System.out.println("Main ended");
         }
     }
 

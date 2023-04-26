@@ -1,6 +1,4 @@
-package org.example.Aspects;
-
-import org.example.DataStore;
+package org.example.AOPDeps;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +9,6 @@ public aspect PathAspect extends BaseAspect {
 
     pointcut profile(): execution(* *(..));
 
-    HashMap<ArrayList<String>, Integer> pathCounter = new HashMap<>();
-
     before(): profile() && !exclude() {
         if (!methodNameStack.empty()) {
             String parentName = methodNameStack.peek();
@@ -20,13 +16,15 @@ public aspect PathAspect extends BaseAspect {
             methodEdge.add(parentName);
             methodEdge.add(thisJoinPoint.getSignature().toString());
             DataStore.incrementPath(methodEdge);
-            if (!pathCounter.containsKey(methodEdge)) {
-                pathCounter.put(methodEdge, 1);
-            } else {
-                pathCounter.put(methodEdge, pathCounter.get(methodEdge) + 1);
-            }
-
         }
         methodNameStack.push(thisJoinPoint.getSignature().toString( ));
+    }
+
+    after() returning: profile() && !exclude() {
+        methodNameStack.pop();
+    }
+
+    after() throwing: profile() && !exclude() {
+        methodNameStack.pop();
     }
 }

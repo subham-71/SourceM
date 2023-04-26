@@ -1,4 +1,4 @@
-package org.example.StatObjects;
+package org.example.AOPDeps;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,4 +19,7 @@ public class ExceptionStatistic {
         timestamps.add(timestamp);
     }
 
+    public ArrayList<String> getTimestamps() {
+        return timestamps;
+    }
 }

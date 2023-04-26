@@ -1,6 +1,4 @@
-package org.example.Aspects;
-
-import org.example.DataStore;
+package org.example.AOPDeps;
 
 import java.util.HashMap;
 
@@ -9,7 +7,6 @@ public aspect ExecutionAspect extends BaseAspect {
 
     pointcut executionCounter(): execution(* *(..));
     pointcut recordTime(): execution(* *(..));
-    pointcut recordTimeAfter(): execution(* *(..));
 
     before(): recordTime() && !exclude() {
         String methodName = thisJoinPoint.getSignature().toString();
@@ -27,7 +24,17 @@ public aspect ExecutionAspect extends BaseAspect {
         DataStore.incrementExecutionCounter(methodName);
     }
 
-    after() returning(): recordTimeAfter() && !exclude() {
+    after() returning(): recordTime() && !exclude() {
+        String methodName = thisJoinPoint.getSignature().toString();
+        long tempTime = executionTimer.get(methodName);
+
+        tempTime += System.nanoTime();
+
+        executionTimer.put(methodName, tempTime);
+        DataStore.logExecutionTime(methodName, tempTime);
+    }
+
+    after() throwing(): recordTime() && !exclude() {
         String methodName = thisJoinPoint.getSignature().toString();
         long tempTime = executionTimer.get(methodName);
 

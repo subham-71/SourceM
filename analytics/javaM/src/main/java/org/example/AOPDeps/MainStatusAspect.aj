@@ -1,7 +1,4 @@
-package org.example.Aspects;
-
-import org.example.DataStore;
-
+package org.example.AOPDeps;
 public aspect MainStatusAspect {
     pointcut mainMethod(): execution(public static void main(String[]));
 

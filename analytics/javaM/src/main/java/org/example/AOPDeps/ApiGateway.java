@@ -1,4 +1,4 @@
-package org.example;
+package org.example.AOPDeps;
 
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;

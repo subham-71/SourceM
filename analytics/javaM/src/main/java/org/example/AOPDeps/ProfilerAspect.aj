@@ -1,10 +1,6 @@
-package org.example.Aspects;
-
-import org.example.DataStore;
-import org.example.StatObjects.Fstat;
+package org.example.AOPDeps;
 
 import java.util.Stack;
-
 public aspect ProfilerAspect extends BaseAspect {
     static Stack<Fstat> cStack = new Stack<>();
     int depth = 0;
