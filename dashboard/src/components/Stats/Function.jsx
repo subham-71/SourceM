@@ -4,7 +4,7 @@ import axios from "axios";
 import {useAuth} from '../../contexts/AuthContext.jsx'
 import {db} from '../../config/firebaseConfig.jsx'
 
-function NumFormat(time){
+function TimeFormat(time){
   time = (time/1000000).toFixed(2)
 
   if(time>1000 &&  time<1000000){
@@ -21,6 +21,21 @@ function NumFormat(time){
   }
   else{
     return time + "ms"
+  }
+}
+
+function NumFormat(count){
+   if(count>1000 &&  count<1000000){
+    return (count/1000).toFixed(2) + "K"+"+"
+  }
+  else if(count>1000000 && count<1000000000){
+    return (count/1000000).toFixed(2) + "M"+"+"
+  }
+  else if(count>1000000000){
+    return (count/1000000000).toFixed(2) + "B"+"+"
+  }
+  else{
+    return count
   }
 }
 
@@ -68,7 +83,7 @@ function Function(props) {
             <FunctionCard
               functionName={NameParse(data.functionName)}
               executionCount = {NumFormat(data.executionCount)}
-              executionTime = {NumFormat(data.executionTime)}
+              executionTime = {TimeFormat(data.executionTime)}
             />
             )
           })
