@@ -10,7 +10,7 @@ function Navbar() {
   async function handleLogout() {
     try {
       await logout()
-      navigate('/login')
+      navigate('/')
     } catch {
       console.log('Failed to log out')
     }
@@ -21,7 +21,7 @@ function Navbar() {
                       
       <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div class=" flex flex-wrap items-center justify-between mx-2 p-4">
-        <a href="https://flowbite.com/" class="flex items-center">
+        <a class="flex items-center">
             <img src={sourceCode} class="bg-white mx-3 ml-1" alt="sourceM Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">sourceM</span>
         </a>
