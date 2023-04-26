@@ -40,12 +40,12 @@ function Application() {
             onClick={()=>handleLogout()}>Logout</button>
         </div>
         <div className="items-center justify-center hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white bg-gray-800 md:bg-gray-900 border-gray-700">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
             <li>
-              <a href="#" className={toggle[0] == 1 ? "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500":"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"} onClick={(e)=>{e.preventDefault();setToggle([1,0,0,0,0])}}>Dashboard</a>
+              <a href="#" className={toggle[0] == 1 ? "block py-2 pl-3 pr-4 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500":"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"} onClick={(e)=>{e.preventDefault();setToggle([1,0,0,0,0])}}>Dashboard</a>
             </li>
             <li>
-              <a href="#" className={toggle[1] == 1 ? "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500":"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"} onClick={(e)=>{e.preventDefault();setToggle([0,1,0,0,0])}}>Control-flow</a>
+              <a href="#" className={toggle[1] == 1 ? "block py-2 pl-3 pr-4 rounded bg-transparent text-blue-700 md:p-0 md:text-blue-500":"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"} onClick={(e)=>{e.preventDefault();setToggle([0,1,0,0,0])}}>Control-flow</a>
             </li>
             <li>
               <a href="#" className={toggle[2] == 1 ? "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500":"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"} onClick={(e)=>{e.preventDefault();setToggle([0,0,1,0,0])}}>Exec-time</a>
