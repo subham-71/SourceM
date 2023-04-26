@@ -4,7 +4,6 @@ import org.example.DataStore;
 
 import java.util.HashMap;
 
-
 public aspect ExecutionAspect extends BaseAspect {
     HashMap<String, Long> executionTimer = new HashMap<>();
 

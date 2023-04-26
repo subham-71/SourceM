@@ -41,6 +41,5 @@ public class Main {
         testA();
         testA();
         System.out.println("This is Main!");
-
     }
 }

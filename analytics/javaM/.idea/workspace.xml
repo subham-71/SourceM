@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db886e-1a31-4f48-85f9-8e6576fc7e36" name="Changes" comment="merging">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/PathAspect.aj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exceptionStat.json" beforeDir="false" afterPath="$PROJECT_DIR$/exceptionStat.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/executionStat.json" beforeDir="false" afterPath="$PROJECT_DIR$/executionStat.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fStat.json" beforeDir="false" afterPath="$PROJECT_DIR$/fStat.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functionStat.json" beforeDir="false" afterPath="$PROJECT_DIR$/functionStat.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathStat.json" beforeDir="false" afterPath="$PROJECT_DIR$/pathStat.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ApiGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ApiGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/BaseAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/BaseAspect.aj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ExceptionAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ExceptionAspect.aj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ExecutionAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ExecutionAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/PrimAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/PrimAspect.aj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/PrimAspect.aj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ProfilerAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ProfilerAspect.aj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ResourceAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aspects/ResourceAspect.aj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StatObjects/Fstat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StatObjects/Fstat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/controllers/exceptionThrowController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/controllers/exceptionThrowController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/controllers/pathCounterController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/controllers/pathCounterController.js" afterDir="false" />
     </list>
     <list id="6b39c480-03ba-451d-8111-edde9a62caae" name="Changes by DELL" comment="" />
     <list id="0a861217-cd0a-4900-b038-4eb54c657bd8" name="Changes by prathamk" comment="" />
@@ -32,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Aspect" />
         <option value="Class" />
+        <option value="Aspect" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -58,33 +60,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prathamk/Desktop/dir/Academics/CP301/NTMicro-Web&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "aspect.path.notification.shown": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/prathamk/Desktop/dir/Academics/CP301/NTMicro-Web",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\prathamk\Desktop\dir\Academics\CS305\MajorProject\CS305-T07\analytics\javaM" />
       <recent name="C:\Users\prathamk\Desktop\dir\Academics\CS305\MajorProject\CS305-T07\analytics\javaM\src\main\java\org\example\Aspects" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.Aspects" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainStatusAspectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javaM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Aspects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.Aspects" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Aspects.MainStatusAspectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MainStatusAspectTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,6 +138,7 @@
       <workItem from="1682150198436" duration="5579000" />
       <workItem from="1682157552463" duration="1699000" />
       <workItem from="1682339720177" duration="21254000" />
+      <workItem from="1682419012945" duration="14817000" />
     </task>
     <task id="LOCAL-00001" summary="merging">
       <created>1682341374554</created>

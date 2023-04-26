@@ -10,7 +10,7 @@ public class ApiGateway {
 
     public ApiGateway(String url) {
         this.api_url = url;
-        this.app_id = "appId2";
+        this.app_id = "7LtPul1FwbgjPyF3YYQv";
     }
 
     public void send(String api_endpoint, String jsonData) {

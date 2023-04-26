@@ -5,7 +5,7 @@ import org.example.DataStore;
 import java.util.ArrayList;
 
 public aspect ExceptionAspect extends BaseAspect {
-    pointcut handledException(Exception e): handler(*) && args(e) ;
+    pointcut handledException(Exception e): handler(*) && args(e) && !cflow(withincode(* pushStatistic(..)));
 
     pointcut exception(): execution(* *(..) throws Exception) || execution(* *(..));
 
@@ -16,7 +16,7 @@ public aspect ExceptionAspect extends BaseAspect {
         DataStore.logException(exceptions);
     }
 
-    before(Exception e): handledException(e) {
+    before(Exception e): handledException(e){
         ArrayList<String> exceptions = new ArrayList<>();
         exceptions.add(e.getClass().getName());
         exceptions.add(thisEnclosingJoinPointStaticPart.getSignature().toString());
