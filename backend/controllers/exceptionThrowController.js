@@ -38,20 +38,17 @@ const getAllFunctionException = async (req, res) => {
         const appId = req.body.appId;
         const exceptionArray = [];
         const data = await firestore.collection('Application').doc(appId).collection('Function').doc(id).collection('Exception').get();
-        if (!data.exists) {
-            res.status(404).send('No record found');
-        } else {
-            data.forEach(doc => {
-                const excptn = new Exception(
-                    id,
-                    doc.id,
-                    doc.data()["timestamp"]
-                );
-                exceptionArray.push(excptn);
-            });
-
-            res.send(exceptionArray);
-        }
+        
+        data.forEach(doc => {
+            const excptn = new Exception(
+                id,
+                doc.id,
+                doc.data()["timestamps"]
+            );
+            exceptionArray.push(excptn);
+        });
+        res.send(exceptionArray);
+        
     } catch (error) {
         res.status(400).send(error.message);
     }
@@ -73,9 +70,37 @@ const getFunctionException = async (req, res) => {
     }
 }
 
+const getAllFunctionAllException = async (req, res) => {
+    try {
+        const appId = req.body.appId;
+        const exceptionArray = [];
+        const data = await firestore.collection('Application').doc(appId).collection('Function').get();
+        // .doc(id).collection('Exception').doc(exceptionId).get();
+        for (let doc of data.docs) {
+        // for ( let i=0; i<data.docs.length; i++) {
+        //     let dd = doc.data();
+        //     console.log(dd);
+            const dataEx =  await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).collection('Exception').get();
+            dataEx.forEach(doc1 => {
+                const excptn = new Exception(
+                    doc.id,
+                    doc1.id,
+                    doc1.data()["timestamps"]
+                );
+                exceptionArray.push(excptn);
+            });
+        };
+        res.send(exceptionArray)
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+
 
 module.exports = {
     addFunctionException,
     getAllFunctionException,
-    getFunctionException
+    getFunctionException,
+    getAllFunctionAllException
 }
