@@ -54,7 +54,7 @@ function Dashboard() {
         </div>
           <table class="min-w-full text-center text-sm font-light">
             <thead
-              class="border-b bg-neutral-800 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
+              class="border-b bg-neutral-800 font-medium text-white">
               <tr>
                 <th scope="col" class=" px-6 py-4">#</th>
                 <th scope="col" class=" px-6 py-4">Application Name</th>
@@ -64,7 +64,7 @@ function Dashboard() {
             </thead>
             <tbody>
               {applicationData.map((data, id) => (
-                <tr key={id+1} className='border-b dark:border-neutral-500'>
+                <tr key={id+1} className='border-b border-neutral-500'>
                   <td class=" px-6 py-4 whitespace-nowrap">{id+1}</td>
                   <td class=" px-6 py-4 whitespace-nowrap">{data.appName}</td>
                   <td class=" px-6 py-4 whitespace-nowrap">{data.appStatus}</td>
