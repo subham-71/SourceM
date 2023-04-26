@@ -4,7 +4,7 @@ import axios from "axios";
 import {useAuth} from '../../contexts/AuthContext.jsx'
 import {db} from '../../config/firebaseConfig.jsx'
 
-function TimeFormat(time){
+function NumFormat(time){
   if(time>1000 &&  time<1000000){
     return (time/1000).toFixed(2) + "K"+"+"
   }
@@ -18,6 +18,15 @@ function TimeFormat(time){
     return time
   }
 }
+
+function NameParse(functionName){
+    var name = functionName.split(" ")[1]
+    name = name.split("(")[0]
+    // name = name.split(".")[2: -1]
+    return name
+
+}
+  
 
 
 function Function(props) {
@@ -48,14 +57,14 @@ function Function(props) {
   return (
     <>
 
-<div class="mt-10 p-10 grid grid-cols-2 gap-2">
+<div class="mt-10 p-10 grid grid-cols-1 md:grid-cols-2 gap-2  ">
         {
         functionData.map((data) => {
           return (
             <FunctionCard
-              functionName={data.functionName}
-              executionCount = {TimeFormat(data.executionCount)}
-              executionTime = {TimeFormat(data.executionTime)}
+              functionName={NameParse(data.functionName)}
+              executionCount = {NumFormat(data.executionCount)}
+              executionTime = {NumFormat(data.executionTime)}
             />
             )
           })
