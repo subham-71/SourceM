@@ -5,24 +5,28 @@ import {useAuth} from '../../contexts/AuthContext.jsx'
 import {db} from '../../config/firebaseConfig.jsx'
 
 function NumFormat(time){
+  time = (time/1000000).toFixed(2)
+
   if(time>1000 &&  time<1000000){
-    return (time/1000).toFixed(2) + "K"+"+"
+    return (time/1000).toFixed(2) + "s"
   }
   else if(time>1000000 && time<1000000000){
-    return (time/1000000).toFixed(2) + "M"+"+"
+    return (time/1000000).toFixed(2) + "K"+"s"
   }
   else if(time>1000000000){
-    return (time/1000000000).toFixed(2) + "B"+"+"
+    return (time/1000000000).toFixed(2) + "M"+"s"
+  }
+  else if(time>1000000000000){
+    return (time/1000000000000).toFixed(2) + "B"+"s"
   }
   else{
-    return time
+    return time + "ms"
   }
 }
 
 function NameParse(functionName){
     var name = functionName.split(" ")[1]
     name = name.split("(")[0]
-    // name = name.split(".")[2: -1]
     return name
 
 }

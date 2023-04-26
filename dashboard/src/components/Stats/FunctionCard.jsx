@@ -19,7 +19,7 @@ return (
               <dl class="grid grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 text-white sm:p-8">
                   <div class="flex flex-col text-center">
                       <dt class="mb-2 text-3xl font-extrabold">{executionTime}</dt>
-                      <dd class="text-gray-400">Execution Time (ms)</dd>
+                      <dd class="text-gray-400">Execution Time</dd>
                   </div>
                   <div class="flex flex-col text-center">
                       <dt class="mb-2 text-3xl font-extrabold">{executionCount}</dt>
