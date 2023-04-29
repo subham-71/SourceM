@@ -17,7 +17,7 @@ public class DataStore {
     public static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
     public static HashMap<ArrayList<String>, ExceptionStatistic> exceptionMap = new HashMap<>();
 
-    public synchronized static void setMainStatus(boolean status) {
+    public static void setMainStatus(boolean status) {
         if (status) {
             mainStatus = true;
 
@@ -38,48 +38,51 @@ public class DataStore {
         }
     }
 
-    static synchronized void pushStatistic() {
+    static synchronized void pushPathCounter() {
+        String json = gson.toJson(pathCounter.values());
+        apiGateway.send("path-counter/add-path-counter/", json);
+        pathCounter.clear();
+    }
+
+    static synchronized void pushExecutionCounter() {
+        String json = gson.toJson(executionCounter.values());
+        apiGateway.send("exec-time/add-func-exec/", json);
+        executionCounter.clear();
+    }
+
+    static synchronized void pushExceptionMap() {
+        String json = gson.toJson(exceptionMap.values());
+        apiGateway.send("exception-throw/add-func-exception/", json);
+        exceptionMap.clear();
+    }
+
+    static synchronized void pushFStatistics() {
+        String json = gson.toJson(fStatistics);
+        apiGateway.send("funcn-cycle/add-func-cycle/", json);
+        fStatistics.clear();
+    }
+
+    static void pushStatistic() {
         System.out.println("Pushing statistic");
         if (pathCounter.size() > 0) {
-            String json = gson.toJson(pathCounter.values());
-            apiGateway.send("path-counter/add-path-counter/", json);
-            pathCounter.clear();
-            saveStatistic(json, "pathStat.json");
+            pushPathCounter();
         }
         if (executionCounter.size() > 0) {
-            String json = gson.toJson(executionCounter.values());
-            apiGateway.send("exec-time/add-func-exec/", json);
-            executionCounter.clear();
-            saveStatistic(json, "executionStat.json");
+            pushExecutionCounter();
         }
         if (exceptionMap.size() > 0) {
-            String json = gson.toJson(exceptionMap.values());
-            apiGateway.send("exception-throw/add-func-exception/", json);
-            exceptionMap.clear();
-            saveStatistic(json, "exceptionStat.json");
+            pushExceptionMap();
         }
         if (fStatistics.size() > 0) {
-            String json = gson.toJson(fStatistics);
-            apiGateway.send("funcn-cycle/add-func-cycle/", json);
-            fStatistics.clear();
-            saveStatistic(json, "fStat.json");
+            pushFStatistics();
         }
     }
 
-    static synchronized void saveStatistic(String json, String fileName) {
-        try {
-            PrintWriter pw = new PrintWriter(fileName);
-            pw.write(json);
-            pw.close();
-        } catch (Exception ignored) {
-        }
-    }
-
-    public synchronized static void updateFStatistic(Fstat functionStatistic) {
+    public static void updateFStatistic(Fstat functionStatistic) {
         fStatistics.add(functionStatistic);
     }
 
-    public synchronized static void incrementPath(ArrayList<String> path) {
+    public static void incrementPath(ArrayList<String> path) {
         if (pathCounter.containsKey(path)) {
             pathCounter.get(path).incrementCount();
         } else {
@@ -87,7 +90,7 @@ public class DataStore {
         }
     }
 
-    public synchronized static void incrementExecutionCounter(String functionName) {
+    public static void incrementExecutionCounter(String functionName) {
         if (executionCounter.containsKey(functionName)) {
             executionCounter.get(functionName).incrementCount();
         } else {
@@ -95,7 +98,7 @@ public class DataStore {
         }
     }
 
-    public synchronized static void logExecutionTime(String functionName, long time) {
+    public static void logExecutionTime(String functionName, long time) {
         if (executionCounter.containsKey(functionName)) {
             executionCounter.get(functionName).incrementCount();
         } else {
@@ -104,7 +107,7 @@ public class DataStore {
         executionCounter.get(functionName).addTime(time);
     }
 
-    public synchronized static void logException(ArrayList<String> exceptions) {
+    public static void logException(ArrayList<String> exceptions) {
         if (exceptionMap.containsKey(exceptions)) {
             exceptionMap.get(exceptions).addTimestamp(LocalDateTime.now().toString());
         } else {

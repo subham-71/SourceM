@@ -1,7 +1,7 @@
 package org.example;
 
-public class Tes {
-    public Tes() {
+public class Test {
+    public Test() {
     }
 
     public void testThrows() throws Exception {

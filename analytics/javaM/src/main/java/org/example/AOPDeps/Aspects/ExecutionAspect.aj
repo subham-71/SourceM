@@ -1,4 +1,6 @@
-package org.example.AOPDeps;
+package org.example.AOPDeps.Aspects;
+
+import org.example.AOPDeps.DataStore;
 
 import java.util.HashMap;
 

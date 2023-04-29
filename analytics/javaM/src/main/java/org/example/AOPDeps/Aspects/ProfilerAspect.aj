@@ -1,4 +1,7 @@
-package org.example.AOPDeps;
+package org.example.AOPDeps.Aspects;
+
+import org.example.AOPDeps.DataStore;
+import org.example.AOPDeps.Fstat;
 
 import java.util.Stack;
 public aspect ProfilerAspect extends BaseAspect {

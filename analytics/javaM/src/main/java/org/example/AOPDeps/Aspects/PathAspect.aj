@@ -1,7 +1,8 @@
-package org.example.AOPDeps;
+package org.example.AOPDeps.Aspects;
+
+import org.example.AOPDeps.DataStore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Stack;
 
 public aspect PathAspect extends BaseAspect {

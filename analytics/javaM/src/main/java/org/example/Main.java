@@ -2,18 +2,18 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Tes tes = new Tes();
-        tes.testFunction();
-        tes.testFunction();
+        Test test = new Test();
+        test.testFunction();
+        test.testFunction();
 
         try {
-            tes.testThrows();
+            test.testThrows();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            tes.testThrows();
+            test.testThrows();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
