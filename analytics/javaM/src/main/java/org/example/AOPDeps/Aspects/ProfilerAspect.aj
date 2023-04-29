@@ -9,12 +9,7 @@ public aspect ProfilerAspect extends BaseAspect {
     int depth = 0;
     int call_id = 0;
 
-    pointcut profile(): execution(* *(..)) && !exclude();
-//        || (call(* *(..)) && within(org.example.TestClassInclude))
-//        || call(* org.example.testpack.TestClassExclude.*(..))
-//        || (call(* *(..)) && within(org.example.testpack.TestClassExclude)));
-
-    before(): profile() {
+    before(): profile() && !exclude() {
         String parent = "None";
         int parent_id = -1;
         if (!cStack.isEmpty()) {
@@ -31,7 +26,7 @@ public aspect ProfilerAspect extends BaseAspect {
         depth++;
     }
 
-    after() returning: profile() {
+    after() returning: profile() && !exclude() {
         if (cStack.isEmpty()) {
             return;
         }
@@ -41,7 +36,7 @@ public aspect ProfilerAspect extends BaseAspect {
         DataStore.updateFStatistic(funcStat);
     }
 
-    after() throwing: profile() {
+    after() throwing: profile() && !exclude() {
         if (cStack.isEmpty()) {
             return;
         }

@@ -1,1 +1,0 @@
-[{"caller":"void org.example.Main.main(String[])","callee":"void org.example.Tes.testFunction()","callCount":2},{"caller":"void org.example.Main.main(String[])","callee":"void org.example.Tes.testThrows()","callCount":1}]

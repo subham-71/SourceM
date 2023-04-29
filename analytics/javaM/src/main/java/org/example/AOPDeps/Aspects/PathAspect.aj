@@ -8,9 +8,9 @@ import java.util.Stack;
 public aspect PathAspect extends BaseAspect {
     Stack<String> methodNameStack = new Stack<>( );
 
-    pointcut profile(): execution(* *(..));
+    pointcut pathProfile(): execution(* *(..));
 
-    before(): profile() && !exclude() {
+    before(): pathProfile() && !exclude() {
         if (!methodNameStack.empty()) {
             String parentName = methodNameStack.peek();
             ArrayList<String> methodEdge = new ArrayList<>();
@@ -21,11 +21,11 @@ public aspect PathAspect extends BaseAspect {
         methodNameStack.push(thisJoinPoint.getSignature().toString( ));
     }
 
-    after() returning: profile() && !exclude() {
+    after() returning: pathProfile() && !exclude() {
         methodNameStack.pop();
     }
 
-    after() throwing: profile() && !exclude() {
+    after() throwing: pathProfile() && !exclude() {
         methodNameStack.pop();
     }
 }
