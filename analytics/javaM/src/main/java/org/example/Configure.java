@@ -80,6 +80,6 @@ public class Configure {
 
 //    public static void main(String[] args) {
 //        baseAspectMaker("config.json", ".\\src\\main\\java\\org\\example\\AOPDeps\\Aspects\\BaseAspect.aj");
-//        appIdClassMaker("org.academic", ".\\src\\main\\java\\org\\example\\AOPDeps\\AppId.java");
+//        appIdClassMaker(args[0], args[1]);
 //    }
 }
