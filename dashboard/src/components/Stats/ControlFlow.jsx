@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Sankey } from '../Graphs/Sankey.jsx'
+import { NewSankey } from '../Graphs/NewSankey.jsx'
 
 function ControlFlow(props) {
 
@@ -11,7 +11,7 @@ function ControlFlow(props) {
   return (
     <>
         <div class = "overflow-hidden w-3/4 h-5/6 mx-auto my-auto " style ={{marginTop : 80}}>            
-        <Sankey height = "720px"  width = "800px" appId={appId} useWeight={useWeight} />
+        <NewSankey height = "720px"  width = "800px" appId={appId} useWeight={useWeight} />
         </div>
     </>
   )

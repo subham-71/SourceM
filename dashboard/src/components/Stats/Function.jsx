@@ -81,6 +81,7 @@ function Function(props) {
         functionData.map((data) => {
           return (
             <FunctionCard
+              appId={appId}
               functionName={NameParse(data.functionName)}
               executionCount = {NumFormat(data.executionCount)}
               executionTime = {TimeFormat(data.executionTime)}
