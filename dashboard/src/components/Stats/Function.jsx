@@ -39,13 +39,7 @@ function NumFormat(count){
   }
 }
 
-function NameParse(functionName){
-    var name = functionName.split(" ")[1]
-    name = name.split("(")[0]
-    return name
 
-}
-  
 
 
 function Function(props) {
@@ -76,13 +70,13 @@ function Function(props) {
   return (
     <>
 
-<div class="mt-10 p-10 grid grid-cols-1 md:grid-cols-2 gap-2  ">
+<div class="p-1 w-full grid grid-cols-1 md:grid-cols-2 gap-y-2" style={{marginTop : 82}}>
         {
         functionData.map((data) => {
           return (
             <FunctionCard
               appId={appId}
-              functionName={NameParse(data.functionName)}
+              functionName={data.functionName}
               executionCount = {NumFormat(data.executionCount)}
               executionTime = {TimeFormat(data.executionTime)}
             />
