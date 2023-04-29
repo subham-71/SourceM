@@ -1,13 +1,13 @@
-package org.example.Aspects;
+package org.example.AOPDeps.Aspects;
 
-import org.example.DataStore;
+import org.example.AOPDeps.DataStore;
 
 import java.util.ArrayList;
 
 public aspect ExceptionAspect extends BaseAspect {
-    pointcut handledException(Exception e): handler(*) && args(e) && !cflow(withincode(* pushStatistic(..)));
+    pointcut handledException(Exception e): handler(*) && args(e) && !within(*..AOPDeps..*);
 
-    pointcut exception(): execution(* *(..) throws Exception) || execution(* *(..));
+    pointcut exception(): execution(* *(..) throws java.lang.Exception) || execution(* *(..));
 
     after() throwing (Exception e): exception() && !exclude() {
         ArrayList<String> exceptions = new ArrayList<>();

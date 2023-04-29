@@ -1,4 +1,4 @@
-package org.example.StatObjects;
+package org.example.AOPDeps;
 
 public class PathStatistic {
     String caller;
@@ -13,5 +13,9 @@ public class PathStatistic {
 
     public void incrementCount() {
         this.callCount++;
+    }
+
+    public int getCount() {
+        return this.callCount;
     }
 }

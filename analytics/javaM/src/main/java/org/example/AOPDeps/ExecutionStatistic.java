@@ -1,4 +1,4 @@
-package org.example.StatObjects;
+package org.example.AOPDeps;
 
 public class ExecutionStatistic {
     String functionName;

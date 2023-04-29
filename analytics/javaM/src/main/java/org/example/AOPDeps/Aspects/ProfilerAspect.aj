@@ -1,21 +1,15 @@
-package org.example.Aspects;
+package org.example.AOPDeps.Aspects;
 
-import org.example.DataStore;
-import org.example.StatObjects.Fstat;
+import org.example.AOPDeps.DataStore;
+import org.example.AOPDeps.Fstat;
 
 import java.util.Stack;
-
 public aspect ProfilerAspect extends BaseAspect {
     static Stack<Fstat> cStack = new Stack<>();
     int depth = 0;
     int call_id = 0;
 
-    pointcut profile(): execution(* *(..)) && !exclude();
-//        || (call(* *(..)) && within(org.example.TestClassInclude))
-//        || call(* org.example.testpack.TestClassExclude.*(..))
-//        || (call(* *(..)) && within(org.example.testpack.TestClassExclude)));
-
-    before(): profile() {
+    before(): profile() && !exclude() {
         String parent = "None";
         int parent_id = -1;
         if (!cStack.isEmpty()) {
@@ -32,7 +26,7 @@ public aspect ProfilerAspect extends BaseAspect {
         depth++;
     }
 
-    after() returning: profile() {
+    after() returning: profile() && !exclude() {
         if (cStack.isEmpty()) {
             return;
         }
@@ -42,7 +36,7 @@ public aspect ProfilerAspect extends BaseAspect {
         DataStore.updateFStatistic(funcStat);
     }
 
-    after() throwing: profile() {
+    after() throwing: profile() && !exclude() {
         if (cStack.isEmpty()) {
             return;
         }
