@@ -1,35 +1,40 @@
 package org.example;
 
+import org.example.AOPDeps.ApiGateway;
 import org.example.AOPDeps.DataStore;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class MainTest {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class PreAspectTest {
+    static ApiGateway mockApiGateWay;
+
     @BeforeAll
     static void init() {
+        mockApiGateWay = Mockito.mock(ApiGateway.class);
+        Mockito.doNothing().when(mockApiGateWay).send(Mockito.anyString(), Mockito.anyString());
+        DataStore.setApiGateway(mockApiGateWay);
         Main.main(new String[]{});
     }
 
-    @Order(1)
     @Test
+    @Order(1)
     void mainTest() {
         assertEquals(false, DataStore.mainStatus);
     }
 
-    @Order(2)
     @Test
+    @Order(2)
     void checkExecutionCounter() {
         assertEquals(3, DataStore.executionCounter.size());
         String[] functionNames = {
             "void org.example.Main.main(String[])",
-            "void org.example.Tes.testFunction()",
-            "void org.example.Tes.testThrows()",
+            "void org.example.Test.testFunction()",
+            "void org.example.Test.testThrows()",
         };
 
         for (String functionName : functionNames) {
@@ -37,22 +42,31 @@ class MainTest {
         }
     }
 
-    @Order(3)
     @Test
+    @Order(3)
     void testThrows() {
         assertEquals(2, DataStore.exceptionMap.keySet().size());
     }
 
-    @Order(4)
     @Test
+    @Order(4)
     void checkPaths() {
         assertEquals(2, DataStore.pathCounter.keySet().size());
     }
 
-    @Order(5)
     @Test
+    @Order(5)
     void checkFstat() {
         assertEquals(5, DataStore.fStatistics.size());
     }
 
+    @Test
+    @Order(6)
+    void checkApiGateWay() {
+        try {
+            DataStore.apiThread.join();
+            Mockito.verify(mockApiGateWay, Mockito.times(4)).send(Mockito.anyString(), Mockito.anyString());
+        } catch (Exception ignored) {
+        }
+    }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataStore {
+    public static Thread apiThread;
     public static boolean mainStatus = false;
     public static Gson gson = new Gson();
 //  public   static ApiGateway apiGateway = new ApiGateway("https://sourcem.onrender.com/");
@@ -17,13 +18,18 @@ public class DataStore {
     public static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();
     public static HashMap<ArrayList<String>, ExceptionStatistic> exceptionMap = new HashMap<>();
 
+    public static void setApiGateway(ApiGateway apiGateway) {
+        DataStore.apiGateway = apiGateway;
+    }
+
     public static void setMainStatus(boolean status) {
         if (status) {
             mainStatus = true;
 
-            Thread apiThread = new Thread(() -> {
+            apiThread = new Thread(() -> {
                 while (mainStatus) {
                     try {
+
                         pushStatistic();
                         Thread.sleep(10000);
                     } catch (Exception e) {
