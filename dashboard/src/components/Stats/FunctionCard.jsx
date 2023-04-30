@@ -39,8 +39,8 @@ return (
                       <dd class="text-gray-400">Memory Consumption</dd>
                   </div>
               </dl>
-                <div class = "overflow-hidden " style ={{marginTop : 80}}>            
-                    <LineChart height = "350px"  width = "500px" appId={appId} functionId={functionName} />
+                <div class = "overflow-hidden items-center" style ={{marginTop : 40}}>            
+                    <LineChart height = "350px"  appId={appId} functionId={functionName} />
                     {console.log({appId} , {functionName})}
                 </div>
               

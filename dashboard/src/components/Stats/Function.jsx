@@ -70,7 +70,7 @@ function Function(props) {
   return (
     <>
 
-<div class="p-1 w-full grid grid-cols-1 md:grid-cols-2 gap-y-2" style={{marginTop : 82}}>
+<div class="p-1 w-full grid grid-cols-1 md:grid-cols-2 lg: grid-cols-3 gap-y-2" style={{marginTop : 82}}>
         {
         functionData.map((data) => {
           return (

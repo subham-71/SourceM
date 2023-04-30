@@ -98,13 +98,18 @@ export function LineChart(props) {
         setChartData(newChartData);
     }, [exceptionData])
 
-    return (
-        <Chart
-            chartType="Line"
-            width={width}
-            height={height}
-            data={chartData}
-            options={options}
-        />
-    );
+    console.log(chartData)
+
+
+    if (chartData.length<2) {
+    return <div class ="mt-20 font-mono mb-20 text-red-400 items-center justify-center font-extrabold flex flex-wrap"> No execption calls history </div> ; 
+    }
+  return <Chart
+        chartType="Line"
+        width={width}
+        height={height}
+        data={chartData}
+        options={options}
+    />;
+ 
 }
