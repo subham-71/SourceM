@@ -42,7 +42,7 @@ test ("all-func-exception", async () => {
         expect(response.statusCode).toBe(200)
 })
 
-test ("func-exception", async () =>{
+test ("func-exception-1", async () =>{
         const data = {
                 appId: appId,
                 functionId: id,
@@ -51,6 +51,17 @@ test ("func-exception", async () =>{
 
         const response = await request(server).post("/exception-throw/func-exception").send(data)
         expect(response.statusCode).toBe(200)
+})
+
+test ("func-exception-2", async () =>{
+        const data = {
+                appId: "appId-inv",
+                functionId: id,
+                exceptionId: exceptionId
+        }
+
+        const response = await request(server).post("/exception-throw/func-exception").send(data)
+        expect(response.statusCode).toBe(404)
 })
 
 server.close()

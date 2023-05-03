@@ -47,7 +47,6 @@ const getAllPathCounters = async (req, res) => {
         res.status(400).send("No records found")
     }
     else {
-        
         res.status(200).send(pathCount);
     }
 }

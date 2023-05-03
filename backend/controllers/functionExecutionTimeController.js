@@ -77,21 +77,21 @@ const getFunctionExecutionTime = async (req, res, next) => {
 }
 
 
-const deleteFunctionExecutionTime = async (req, res, next) => {
-    try {
-        const appId = req.body.appId;
-        const id = req.params.id;
-        await firestore.collection("Application").doc(appId).collection('Function').doc(id).delete();
-        res.send('Record deleted successfuly');
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
-}
+// const deleteFunctionExecutionTime = async (req, res, next) => {
+//     try {
+//         const appId = req.body.appId;
+//         const id = req.params.id;
+//         await firestore.collection("Application").doc(appId).collection('Function').doc(id).delete();
+//         res.send('Record deleted successfuly');
+//     } catch (error) {
+//         res.status(400).send(error.message);
+//     }
+// }
 
 module.exports = {
     addFunctionExecutionTime,
     getAllFunctionExecutionTimes,
     getFunctionExecutionTime,
     // updateFunctionExecutionTime,
-    deleteFunctionExecutionTime
+    // deleteFunctionExecutionTime
 }
