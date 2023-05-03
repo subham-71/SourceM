@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {useAuth} from '../../contexts/AuthContext'
 import { LineChart } from '../Graphs/LineChart';
 
 
@@ -16,7 +15,6 @@ const functionCard = (props) => {
   const { appId,functionName, executionCount,executionTime } = props;    
 
   const [exceptionData, setExceptionData] = useState([])
-  const {currentUser} = useAuth()
 
     
 return (
