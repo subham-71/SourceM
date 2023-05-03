@@ -31,7 +31,7 @@ export const Text_ = styled.div`
   }
 `;
 
-export const ColunaImagem = styled.div`
+export const Image_ = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -94,3 +94,4 @@ export const Title_ = styled.h1`
   font-size: 4.5rem;
   margin-bottom: 2rem;
 `;
+
