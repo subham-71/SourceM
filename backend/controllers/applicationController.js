@@ -22,7 +22,7 @@ const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
         const appName = req.body.appName;
         const appStatus = req.body.appStatus
-        console.log(clientId, appName, appStatus)
+        // console.log(clientId, appName, appStatus)
         let appId = "";
         await firestore.collection('Application').add({
                 'Name': appName,

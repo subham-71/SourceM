@@ -15,7 +15,7 @@ const id = "int org.example.Main.testThrow(int, int)" // have to add a new id fi
 //      })
      
 
-test("all-func-exec", async () => {
+test("all-func-exec-1", async () => {
 
 	const data = {
 		appId: appId,
@@ -26,7 +26,18 @@ test("all-func-exec", async () => {
 		
 })
 
-test("func-exec", async () => {
+test("all-func-exec-2", async () => {
+
+	const data = {
+		appId: "appId-invalid",
+	}
+    
+    const response = await request(server).post("/exec-time/all-func-exec").send(data)
+    expect(response.statusCode).toBe(404)
+		
+})
+
+test("func-exec-1", async () => {
 
 	const data = {
 		appId: appId,
@@ -34,6 +45,16 @@ test("func-exec", async () => {
 	}
 	const response = await request(server).post("/exec-time/func-exec").send(data)
     	expect(response.statusCode).toBe(200)
+})
+
+test("func-exec-2", async () => {
+
+	const data = {
+		appId: "appId-invalid",
+		id: id
+	}
+	const response = await request(server).post("/exec-time/func-exec").send(data)
+    	expect(response.statusCode).toBe(404)
 })
 
 test ("add-func-exec", async () => {
@@ -49,14 +70,5 @@ test ("add-func-exec", async () => {
 	expect(response.statusCode).toBe(200)
 })
 
-// test("func-exec", async () => {
-    
-//     const response = await request(app).get("/exec-time/func-exec/").query({ id: id })
-//     expect(response.statusCode).toBe(200)
-		
-// })
-
-// delete require.cache[require.resolve('../index')]
-// done()
 
 server.close()
