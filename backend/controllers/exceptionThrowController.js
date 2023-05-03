@@ -34,8 +34,8 @@ const addFunctionException = async (req, res) => {
 
 const getAllFunctionException = async (req, res) => {
     try {
-        const id = req.body.functionId;
         const appId = req.body.appId;
+        const id = req.body.functionId;
         const exceptionArray = [];
         const data = await firestore.collection('Application').doc(appId).collection('Function').doc(id).collection('Exception').get();
         
@@ -47,7 +47,7 @@ const getAllFunctionException = async (req, res) => {
             );
             exceptionArray.push(excptn);
         });
-        res.send(exceptionArray);
+        res.status(200).send(exceptionArray);
         
     } catch (error) {
         res.status(400).send(error.message);
@@ -63,7 +63,7 @@ const getFunctionException = async (req, res) => {
         if (!data.exists) {
             res.status(404).send('No record found');
         } else {
-            res.send(data.data());
+            res.status(200).send(data.data());
         }
     } catch (error) {
         res.status(400).send(error.message);
@@ -90,7 +90,7 @@ const getAllFunctionAllException = async (req, res) => {
                 exceptionArray.push(excptn);
             });
         };
-        res.send(exceptionArray)
+        res.status(200).send(exceptionArray)
     } catch (error) {
         res.status(400).send(error.message);
     }

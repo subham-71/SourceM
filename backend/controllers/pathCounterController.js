@@ -35,13 +35,20 @@ const addPathCounter = async (req, res) => {
 
 const getAllPathCounters = async (req, res) => {
     const appId = req.body.appId;
+    // console.log(appId)
     const data = await firestore.collection('Application').doc(appId).collection('Path Count').get();
-    if (!data.exists) {
-        res.status(404).send('No record found');
-    } else {
-        data().data().forEach(doc => {
-            res.send(doc.data());
-        });
+    let pathCount = []
+
+    data.forEach(doc => {
+        pathCount.push(doc.data())
+        
+    });
+    if (pathCount.length == 0) {
+        res.status(400).send("No records found")
+    }
+    else {
+        
+        res.status(200).send(pathCount);
     }
 }
 
