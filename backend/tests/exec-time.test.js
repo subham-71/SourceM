@@ -15,6 +15,14 @@ test("all-func-exec", async () => {
 		
 })
 
+test("func-exec", async () => {
+
+	const data = {
+		appId: appId,
+		id: id
+	}
+})
+
 // test("func-exec", async () => {
     
 //     const response = await request(app).get("/exec-time/func-exec/").query({ id: id })

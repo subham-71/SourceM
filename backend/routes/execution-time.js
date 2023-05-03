@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/add-func-exec', addFunctionExecutionTime);
 router.post('/all-func-exec', getAllFunctionExecutionTimes);
-router.get('/func-exec/', getFunctionExecutionTime);
+router.post('/func-exec/', getFunctionExecutionTime);
 // router.put('/func-exec/:id', updateFunctionExecutionTime);
 router.delete('/func-exec/', deleteFunctionExecutionTime);
 

@@ -53,7 +53,7 @@ const getAllFunctionExecutionTimes = async (req, res, next) => {
                 );
                 functionArray.push(func);
             });
-            res.send(functionArray);
+            res.status(200).send(functionArray);
         }
     } catch (error) {
         res.status(400).send(error.message);
@@ -63,13 +63,13 @@ const getAllFunctionExecutionTimes = async (req, res, next) => {
 const getFunctionExecutionTime = async (req, res, next) => {
     try {
         const appId = req.body.appId;
-        const id = req.params.id;
+        const id = req.body.id;
         const func = await firestore.collection('Application').doc(appId).collection('Function').doc(id);
         const data = await func.get();
         if(!data.exists) {
             res.status(404).send('Function with the given ID not found');
         }else {
-            res.send(data.data());
+            res.status(200).send(data.data());
         }
     } catch (error) {
         res.status(400).send(error.message);
