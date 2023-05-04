@@ -1,2 +1,3 @@
 /* /index.html 200
-/api/* http://endpoint.com/api/:splat 200!
+/api/* http://64.227.184.69:8000/application/register 200!
+/api/* http://64.227.184.69:8000/application/upload 200!
