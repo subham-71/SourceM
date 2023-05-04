@@ -74,13 +74,13 @@ class AuthTest(unittest.TestCase):
         assert driver.current_url == "https://sourcem.netlify.app/login"
 
     def test_without_login(self):
-    #     driver = self.driver
-    #     driver.get("https://sourcem.netlify.app/dashboard")
+        driver = self.driver
+        driver.get("https://sourcem.netlify.app/dashboard")
 
-    #     time.sleep(2)
+        time.sleep(2)
 
-    #     # Check if the user is redirected to the login page
-    #     assert driver.current_url == "https://sourcem.netlify.app/login"
+        # Check if the user is redirected to the login page
+        assert driver.current_url == "https://sourcem.netlify.app/login"
 
     def test_check_logout(self):
         driver = self.driver

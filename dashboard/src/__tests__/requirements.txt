@@ -2,3 +2,4 @@ coverage
 selenium
 python-dotenv
 pytest
+pytest-html
