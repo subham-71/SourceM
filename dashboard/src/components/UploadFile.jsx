@@ -6,6 +6,8 @@ import {ref, uploadBytes} from 'firebase/storage'
 import { useAuth } from '../contexts/AuthContext.jsx'
 
 export default function UploadFile() {
+
+    const base_url = "62.23.4.5:8000"
     const navigate = useNavigate()
     const {currentUser} = useAuth()
     const [appName, setAppName] = useState('');
@@ -22,7 +24,7 @@ export default function UploadFile() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("appName",appName)
-        const response = await fetch('http://localhost:8000/application/register',{
+        const response = await fetch(`http://${base_url}/application/register`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +41,7 @@ export default function UploadFile() {
         const fileRef = ref(storage, `applications/${currentUser.uid}/${appId}/input.jar`);
         uploadBytes(fileRef, jarFile).then(async (snapshot) => {
             console.log('Uploaded a blob or file!');
-            const res = await fetch('http://localhost:8000/application/upload',{
+            const res = await fetch(`http://${base_url}/application/upload`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
