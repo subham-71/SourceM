@@ -11,7 +11,7 @@ function Dashboard() {
 
   const {currentUser} = useAuth()
   const [applicationData, setApplicationData] = useState([])
-  const base_url = "45.34.32.43:8000"
+  const base_url  = "sourcem.onrender.com"
 
   useEffect(() => {
     const getApplicationData = async () => {

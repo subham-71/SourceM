@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext.jsx'
 
 export default function UploadFile() {
 
-    const base_url = "62.23.4.5:8000"
+    const base_url = "64.227.184.69:8000"
     const navigate = useNavigate()
     const {currentUser} = useAuth()
     const [appName, setAppName] = useState('');
