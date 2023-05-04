@@ -16,7 +16,7 @@ class AuthTest(unittest.TestCase):
         # get driver
         driver = self.driver
         driver.get("https://sourcem.netlify.app/")
-        time.sleep(2)
+        time.sleep(5)
         assert driver.title == "SourceM"
 
     def test_check_login(self):
@@ -36,7 +36,7 @@ class AuthTest(unittest.TestCase):
         login = driver.find_element(By.XPATH, "//button[1]")
         login.click()
 
-        time.sleep(2)
+        time.sleep(5)
 
         # Check if the user is redirected to the dashboard
         print(driver.current_url)
@@ -58,7 +58,7 @@ class AuthTest(unittest.TestCase):
         login = driver.find_element(By.XPATH, "//button[1]")
         login.click()
 
-        time.sleep(2)
+        time.sleep(5)
 
         # selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: Failed to Log in
         # Message: unexpected alert open: {Alert text : Failed to Log in}
@@ -77,7 +77,7 @@ class AuthTest(unittest.TestCase):
         driver = self.driver
         driver.get("https://sourcem.netlify.app/dashboard")
 
-        time.sleep(2)
+        time.sleep(5)
 
         # Check if the user is redirected to the login page
         assert driver.current_url == "https://sourcem.netlify.app/login"
@@ -101,7 +101,7 @@ class AuthTest(unittest.TestCase):
         login = driver.find_element(By.XPATH, "//button[1]")
         login.click()
 
-        time.sleep(2)
+        time.sleep(5)
 
         # Check if the user is redirected to the dashboard
         assert driver.current_url == "https://sourcem.netlify.app/dashboard"
@@ -110,7 +110,7 @@ class AuthTest(unittest.TestCase):
         logout = driver.find_element(By.XPATH, "//button[@type='button']")
         logout.click()
 
-        time.sleep(2)
+        time.sleep(5)
 
         # Check if the user is redirected to the landing page
         print(driver.current_url)

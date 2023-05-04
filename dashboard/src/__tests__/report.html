@@ -253,7 +253,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 04-May-2023 at 18:20:00 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 04-May-2023 at 21:46:58 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -272,8 +272,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.13</td></tr></table>
     <h2>Summary</h2>
-    <p>12 tests ran in 163.78 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">12 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>12 tests ran in 166.49 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">11 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -284,11 +284,21 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">auth-testing.py::AuthTest::test_check_login</td>
+          <td class="col-duration">10.05</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;auth-testing.AuthTest testMethod=test_check_login&gt;<br/><br/>    def test_check_login(self):<br/>        driver = self.driver<br/>        driver.get(&quot;https://sourcem.netlify.app/login&quot;)<br/>    <br/>        time.sleep(5)<br/>    <br/>        # Fill the login form<br/>        # Xpath is //input[@type=&quot;email&quot;]<br/>        username = driver.find_element(By.XPATH, &quot;//input[@type=&#x27;email&#x27;]&quot;)<br/>        username.send_keys(&quot;parth3@gmail.com&quot;)<br/>        password = driver.find_element(By.XPATH, &quot;//input[@type=&#x27;password&#x27;]&quot;)<br/>        password.send_keys(&quot;parth123&quot;)<br/>    <br/>        # Click the login button<br/>        login = driver.find_element(By.XPATH, &quot;//button[1]&quot;)<br/>        login.click()<br/>    <br/>        time.sleep(2)<br/>    <br/>        # Check if the user is redirected to the dashboard<br/>        print(driver.current_url)<br/>&gt;       assert driver.current_url == &quot;https://sourcem.netlify.app/dashboard&quot;<br/><span class="error">E       AssertionError: assert &#x27;https://sour...ify.app/login&#x27; == &#x27;https://sour...app/dashboard&#x27;</span><br/><span class="error">E         - https://sourcem.netlify.app/dashboard</span><br/><span class="error">E         ?                             ^^^^^ ^^^</span><br/><span class="error">E         + https://sourcem.netlify.app/login</span><br/><span class="error">E         ?                             ^ ^^^</span><br/><br/>auth-testing.py:43: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>https://sourcem.netlify.app/login
+<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">auth-testing.py::AuthTest::test_check_invalid_login</td>
-          <td class="col-duration">10.90</td>
+          <td class="col-duration">11.25</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -297,7 +307,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">auth-testing.py::AuthTest::test_check_landing_page</td>
-          <td class="col-duration">6.69</td>
+          <td class="col-duration">7.44</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -305,18 +315,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">auth-testing.py::AuthTest::test_check_login</td>
-          <td class="col-duration">11.54</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>https://sourcem.netlify.app/dashboard
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
           <td class="col-name">auth-testing.py::AuthTest::test_check_logout</td>
-          <td class="col-duration">14.01</td>
+          <td class="col-duration">14.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -326,7 +326,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">auth-testing.py::AuthTest::test_without_login</td>
-          <td class="col-duration">8.91</td>
+          <td class="col-duration">8.87</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -335,7 +335,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">security-testing.py::SecurityTest::test_cross_site_scripting_login</td>
-          <td class="col-duration">6.51</td>
+          <td class="col-duration">7.20</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -344,7 +344,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">security-testing.py::SecurityTest::test_sql_injection_login</td>
-          <td class="col-duration">10.51</td>
+          <td class="col-duration">10.70</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -353,7 +353,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">linkages-testing.py::LinkagesTest::test_linkage_application</td>
-          <td class="col-duration">36.73</td>
+          <td class="col-duration">37.66</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -362,7 +362,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">linkages-testing.py::LinkagesTest::test_linkage_dashboard</td>
-          <td class="col-duration">30.12</td>
+          <td class="col-duration">29.43</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -371,7 +371,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">linkages-testing.py::LinkagesTest::test_linkage_forgot_password</td>
-          <td class="col-duration">6.65</td>
+          <td class="col-duration">6.87</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -380,7 +380,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">linkages-testing.py::LinkagesTest::test_linkage_login</td>
-          <td class="col-duration">8.42</td>
+          <td class="col-duration">9.49</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -389,7 +389,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">linkages-testing.py::LinkagesTest::test_linkage_signup</td>
-          <td class="col-duration">12.45</td>
+          <td class="col-duration">12.79</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
