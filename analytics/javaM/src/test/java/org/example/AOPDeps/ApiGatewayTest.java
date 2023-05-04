@@ -22,10 +22,13 @@ class ApiGatewayTest {
     @BeforeAll
     static void init() throws Exception {
         apiGateway = new ApiGateway("http://localhost:8080");
+        // Making a spy class to ensure function is being called
         apiGatewayUnderTest = Mockito.spy(apiGateway);
+        // Mocking the connection and output stream
         mockConn = Mockito.mock(HttpURLConnection.class);
         mockOutStream = Mockito.mock(OutputStream.class);
 
+        // Mocking the functions that are called in the send function
         Mockito.when(apiGatewayUnderTest.getUrlConnection(Mockito.anyString())).thenReturn(mockConn);
         Mockito.when(mockConn.getOutputStream()).thenReturn(mockOutStream);
         Mockito.when(mockConn.getResponseCode()).thenReturn(200).thenReturn(400);
@@ -33,9 +36,11 @@ class ApiGatewayTest {
     }
     @Test
     void send() throws Exception {
+        // Testing the send function
         assertEquals("abcd1234", apiGateway.app_id);
         apiGatewayUnderTest.send("/test", "{\"test\": \"test\"}");
 
+        // Verifying that the functions were called
         apiGatewayUnderTest.send("/test", "{\"test\": \"test\"}");
         Mockito.verify(mockConn, Mockito.times(2)).setRequestMethod("POST");
         Mockito.verify(mockConn, Mockito.times(2)).setRequestProperty("Content-Type", "application/json");

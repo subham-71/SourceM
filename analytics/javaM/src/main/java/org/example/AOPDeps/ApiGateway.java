@@ -6,6 +6,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Properties;
 
+/**
+ * Class to send data to the API endpoint
+ */
 public class ApiGateway {
     String api_url;
     String app_id;
@@ -29,10 +32,11 @@ public class ApiGateway {
         this.api_url = url;
     }
 
-    public void setHttpConnection(HttpURLConnection conn) {
-        this.conn = conn;
-    }
-
+    /**
+     * Function to get the URL connection
+     * @param api_endpoint the API endpoint to get the URL connection for
+     * @return the URL connection
+     */
     public HttpURLConnection getUrlConnection(String api_endpoint) {
         try {
             URL url = new URL(api_url + api_endpoint);
@@ -42,6 +46,11 @@ public class ApiGateway {
         }
     }
 
+    /**
+     * Function to send data to the API endpoint
+     * @param api_endpoint the API endpoint to send data to
+     * @param jsonData the data to be sent to the API endpoint
+     */
     public void send(String api_endpoint, String jsonData) {
         try {
             conn = getUrlConnection(api_endpoint);
@@ -51,7 +60,6 @@ public class ApiGateway {
 
             OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
             String jsonWithHeader = "{\"data\": " + jsonData + ", \"appId\": \"" + app_id + "\"}";
-//            System.out.println(jsonWithHeader);
             writer.write(jsonWithHeader);
             writer.flush();
 
