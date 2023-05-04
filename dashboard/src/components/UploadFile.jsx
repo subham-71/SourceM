@@ -22,7 +22,7 @@ export default function UploadFile() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("appName",appName)
-        const response = await fetch('http://localhost:8000/application/register',{
+        const response = await fetch('http://sourcem.onrender.com/application/register',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

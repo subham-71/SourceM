@@ -3,6 +3,7 @@ import Navbar from './Navbars/Navbar.jsx'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { storage } from '../config/firebaseConfig.jsx'
+import {ref, getDownloadURL} from 'firebase/storage'
 
 function Dashboard() {
 
@@ -38,9 +39,40 @@ function Dashboard() {
     navigate('/application', {state: {applicationId: applicationName}})
   }
 
-  const handleRedirect1 = (applicationName) => {
+  const handleDownload = async(applicationName) => {
+    getDownloadURL(ref(storage, `applications/${currentUser.uid}/${applicationName}/output.jar`))
+      .then((url) => {
+
+          fetch(url).then(response => {
+
+            response.blob().then(blob => {
+                const fileURL = window.URL.createObjectURL(blob);
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'output.jar';
+                alink.click();
+            })
+        })
+
+      })
+
+      .catch((error) => {
+        console.log(error)
+      });
+      
+      const response = await fetch('http://sourcem.onrender.com/application/change-status',{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+              },
+            body: JSON.stringify({
+                "appId": applicationName,
+            }),
+        })
+    
     navigate('/application', {state: {applicationId: applicationName}})
   }
+
 
   return (
     <>
@@ -76,7 +108,7 @@ function Dashboard() {
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
                       View Application
                     </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleDownload(data.appId)}>
                       Download Release
                     </button>
                   </td>

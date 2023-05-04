@@ -87,9 +87,24 @@ const getClientApplications = async (req, res) => {
                 res.status(400).send(error.message);
         }
 }
+const changeStatus = async (req, res) => {
+        try {
+                const appId = req.body.appId;
+   
+                await firestore.collection("Application").doc(appId).update({"Status":"Deployed"})                 
+                res.status(200).send("Status Changed");      
+               
+
+        } 
+        catch (error) {
+                res.status(400).send(error.message);
+        }
+}
+
 
 module.exports = {
         applicationUpload,
         applicationRegister,
-        getClientApplications
+        getClientApplications,
+        changeStatus
 }
