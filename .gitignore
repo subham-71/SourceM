@@ -6,3 +6,7 @@
 *.iws
 *.iml
 *.ipr
+
+firebase-key.json
+
+.vscode
