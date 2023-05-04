@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="37db886e-1a31-4f48-85f9-8e6576fc7e36" name="Changes" comment="merging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/ApiGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/ApiGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/BaseAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/BaseAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/ExceptionAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/ExceptionAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/ExecutionAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/ExecutionAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/MainStatusAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/MainStatusAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/PathAspect.aj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/Aspects/PathAspect.aj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/DataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AOPDeps/DataStore.java" afterDir="false" />
     </list>
     <list id="6b39c480-03ba-451d-8111-edde9a62caae" name="Changes by DELL" comment="" />
     <list id="0a861217-cd0a-4900-b038-4eb54c657bd8" name="Changes by prathamk" comment="" />
@@ -205,9 +198,8 @@
       <workItem from="1682771933135" duration="5411000" />
       <workItem from="1682778150078" duration="1302000" />
       <workItem from="1682823611815" duration="169000" />
-      <workItem from="1682823800907" duration="7015000" />
-      <workItem from="1683132420556" duration="450000" />
-      <workItem from="1683203639310" duration="5871000" />
+      <workItem from="1682823800907" duration="6756000" />
+      <workItem from="1683131226251" duration="1608000" />
     </task>
     <task id="LOCAL-00001" summary="merging">
       <created>1682341374554</created>

@@ -12,7 +12,7 @@ function Exceptions(props) {
     <>
         
 
-       <div class = "overflow-hidden w-3/4 h-5/6 mx-auto my-auto " style ={{marginTop : 80}}> 
+       <div id="exceptions" class = "overflow-hidden w-3/4 h-5/6 mx-auto my-auto " style ={{marginTop : 80}}> 
             <NewBarChart height = "720px"  width = "800px" appId={appId} />
         </div>
 

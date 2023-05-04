@@ -1,6 +1,4 @@
-import { Container } from "./styled";
-import About from "./index"
-import { GlobalStyles } from "./GlobalStyles";
+import Overview from "./Overview"
 import { ThemeProvider } from "styled-components";
 
 const tema = {
@@ -18,7 +16,9 @@ export default function Landing() {
   return (
     <>
       <ThemeProvider theme={tema}>
-        <About/>
+        
+      <Overview/>
+
       </ThemeProvider>
     </>
   );

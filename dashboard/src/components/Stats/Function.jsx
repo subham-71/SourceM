@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import FunctionCard from './FunctionCard.jsx'
 import axios from "axios";
-import {useAuth} from '../../contexts/AuthContext.jsx'
-import {db} from '../../config/firebaseConfig.jsx'
 
 function TimeFormat(time){
   time = (time/1000000).toFixed(2)
@@ -47,7 +45,6 @@ function Function(props) {
   const { appId } = props;
   const [functionData, setFunctionData] = useState([])
 
-  const {currentUser} = useAuth()
 
   useEffect(() => {
         (async () => {
@@ -70,7 +67,7 @@ function Function(props) {
   return (
     <>
 
-<div class="p-1 w-full grid grid-cols-1 md:grid-cols-2 gap-y-2" style={{marginTop : 82}}>
+<div id="function" class="p-1 w-full grid grid-cols-1 md:grid-cols-2 lg: grid-cols-3 gap-y-2" style={{marginTop : 82}}>
         {
         functionData.map((data) => {
           return (

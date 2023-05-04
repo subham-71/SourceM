@@ -9,7 +9,7 @@ import Landing from "../components/Landing/Landing.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
 import { Navigate } from "react-router-dom";
 import UploadFile from "../components/UploadFile.jsx";
-
+import About from "../components/Landing/About.jsx";
 
 const Router = () => {
     const { currentUser } = useAuth();
@@ -22,6 +22,7 @@ const Router = () => {
         <>
             <Routes>
                 <Route path="/" element={<Landing />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />

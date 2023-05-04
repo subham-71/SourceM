@@ -33,7 +33,7 @@ const getFunctionCycle = async (req, res) => {
                         )
                         profileArray.push(profile);
                 });
-                res.send(profileArray);
+                res.status(200).send(profileArray);
         } catch (error) {
                 res.status(400).send("Error in fetching function cycle");
         }

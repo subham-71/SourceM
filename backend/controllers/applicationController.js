@@ -1,15 +1,23 @@
 'use strict';
 
 const firestore = require('../db');
+const fs = require("fs");
 const Application = require('../models/application');
 const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationUpload = async (req, res) => {
         try {   
-                console.log(req.body)
-                const appName = req.body.appName;
-                const jarFile = req.file;
-                console.log(appId)
+                // writing the JSON string content to a file
+                fs.writeFile("../backend/config_data/data.json", JSON.stringify(req.body) , (error) => {
+       
+                        if (error) {
+                        // logging the error
+                        console.error(error);
+
+                        throw error;
+                        }
+                console.log("data.json written correctly")} )
+
                 res.status(200).send(data);
         }
         catch (error) {
@@ -22,7 +30,7 @@ const applicationRegister = async(req,res) => {
         const clientId = req.body.clientId;
         const appName = req.body.appName;
         const appStatus = req.body.appStatus
-        console.log(clientId, appName, appStatus)
+        // console.log(clientId, appName, appStatus)
         let appId = "";
         await firestore.collection('Application').add({
                 'Name': appName,
@@ -79,9 +87,24 @@ const getClientApplications = async (req, res) => {
                 res.status(400).send(error.message);
         }
 }
+const changeStatus = async (req, res) => {
+        try {
+                const appId = req.body.appId;
+   
+                await firestore.collection("Application").doc(appId).update({"Status":"Deployed"})                 
+                res.status(200).send("Status Changed");      
+               
+
+        } 
+        catch (error) {
+                res.status(400).send(error.message);
+        }
+}
+
 
 module.exports = {
         applicationUpload,
         applicationRegister,
-        getClientApplications
+        getClientApplications,
+        changeStatus
 }
