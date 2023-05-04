@@ -22,7 +22,7 @@ export default function UploadFile() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("appName",appName)
-        const response = await fetch('http://sourcem.onrender.com/application/register',{
+        const response = await fetch('http://localhost:8000/application/register',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function UploadFile() {
         const fileRef = ref(storage, `applications/${currentUser.uid}/${appId}/${jarFile.name}`);
         uploadBytes(fileRef, jarFile).then(async (snapshot) => {
             console.log('Uploaded a blob or file!');
-            const res = await fetch('http://64.227.184.69:8000/application/upload',{
+            const res = await fetch('http://localhost:8000/application/upload',{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

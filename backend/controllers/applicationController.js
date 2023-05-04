@@ -7,19 +7,9 @@ const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationUpload = async (req, res) => {
         try {   
-                console.log(req.body)
-                const clientId = req.body.clientId;
-                const appId = req.appId;
-                
-                var userName = {clientId : clientId, appId: appId};
-
-                // converting the JSON object to a string
-                const data = JSON.stringify(userName);
-
                 // writing the JSON string content to a file
-                fs.writeFile("../config_data/data.json", data, (error) => {
-                        // throwing the error
-                        // in case of a writing problem
+                fs.writeFile("../backend/config_data/data.json", JSON.stringify(req.body) , (error) => {
+       
                         if (error) {
                         // logging the error
                         console.error(error);

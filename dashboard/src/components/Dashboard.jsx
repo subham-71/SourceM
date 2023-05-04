@@ -38,6 +38,10 @@ function Dashboard() {
     navigate('/application', {state: {applicationId: applicationName}})
   }
 
+  const handleRedirect1 = (applicationName) => {
+    navigate('/application', {state: {applicationId: applicationName}})
+  }
+
   return (
     <>
       <Navbar/>
@@ -73,7 +77,7 @@ function Dashboard() {
                       View Application
                     </button>
                     <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
-                      Analyze
+                      Download Release
                     </button>
                   </td>
                 </tr>
