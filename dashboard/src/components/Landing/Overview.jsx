@@ -49,8 +49,8 @@ export default function Overview() {
           <div class="flex flex-row">
             <button type="button" class="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
             onClick={()=>Signup()}>Signup</button>
-        
-            <button type="button" class="text-black text-xl bg-white-700 hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 "
+
+            <button type="button" class="text-black text-xl ml-3 bg-white-700 hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 "
             onClick={()=>Login()}>Login</button>
     
           </div>

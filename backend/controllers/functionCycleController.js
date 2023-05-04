@@ -1,6 +1,6 @@
 'use strict';
 
-const firestore = require('../db');
+const {firestore,storage} = require('../db');
 const Profile = require('../models/profile');
 
 const addFunctionCycle = async (req, res, next) => {

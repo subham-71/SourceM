@@ -1,5 +1,5 @@
 'use strict';
 
-const firestore = require('../db');
+const {firestore,storage} = require('../db');
 
 

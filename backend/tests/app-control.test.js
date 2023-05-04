@@ -1,4 +1,4 @@
-const firestore = require('../db');
+const {firestore,storage} = require('../db');
 
 const request = require("supertest");
 // server = require("../index");

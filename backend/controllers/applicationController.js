@@ -1,14 +1,19 @@
 'use strict';
 
-const firestore = require('../db');
+const {firestore,bucket} = require('../db');
 const fs = require("fs");
 const Application = require('../models/application');
 const { FieldValue } = require('firebase-admin/firestore');
 
+
 const applicationUpload = async (req, res) => {
         try {   
                 // writing the JSON string content to a file
-                fs.writeFile("../backend/config_data/data.json", JSON.stringify(req.body) , (error) => {
+                const clientId = req.body.clientId;
+                const appId = req.body.appId;
+                
+                var mssg = "appId="+clientId;
+                await fs.writeFile("../backend/config-data/config.properties", mssg , (error) => {
        
                         if (error) {
                         // logging the error
@@ -18,6 +23,27 @@ const applicationUpload = async (req, res) => {
                         }
                 console.log("data.json written correctly")} )
 
+                
+                try {
+                        const file = bucket.file(`applications/${clientId}/${appId}/input.jar`);
+                        const fs = require('fs');
+
+                        const localFilePath = '../backend/config-data/input.jar';
+
+                        file.download({ destination: localFilePath })
+                        .then(() => {
+                        console.log('File downloaded successfully.');
+                        })
+                        .catch((error) => {
+                        console.error('Error downloading file:', error);
+                        });
+                }
+
+                catch(error){
+                        console.log(error)
+                }
+               
+               
                 res.status(200).send(data);
         }
         catch (error) {

@@ -1,6 +1,6 @@
 'use strict';
 
-const firestore = require('../db');
+const {firestore,storage} = require('../db');
 const Function = require('../models/function');
 
 
