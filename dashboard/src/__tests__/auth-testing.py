@@ -10,7 +10,6 @@ class AuthTest(unittest.TestCase):
     # initialization of webdriver
     def setUp(self):
         self.driver= webdriver.Chrome()
-        self.driver.get("https://sourcem.netlify.app/")
 
     def test_check_landing_page(self):
         
@@ -74,6 +73,48 @@ class AuthTest(unittest.TestCase):
         # Check if the user is still on the login page
         assert driver.current_url == "https://sourcem.netlify.app/login"
 
+    def test_without_login(self):
+    #     driver = self.driver
+    #     driver.get("https://sourcem.netlify.app/dashboard")
+
+    #     time.sleep(2)
+
+    #     # Check if the user is redirected to the login page
+    #     assert driver.current_url == "https://sourcem.netlify.app/login"
+
+    def test_check_logout(self):
+        driver = self.driver
+        driver.get("https://sourcem.netlify.app/login")
+
+        time.sleep(5)
+
+        # Fill the login form
+        username = driver.find_element(By.XPATH, "//input[@type='email']")
+        # Fill the login form
+        # Xpath is //input[@type="email"]
+        username = driver.find_element(By.XPATH, "//input[@type='email']")
+        username.send_keys("parth3@gmail.com")
+        password = driver.find_element(By.XPATH, "//input[@type='password']")
+        password.send_keys("parth123")
+
+        # Click the login button
+        login = driver.find_element(By.XPATH, "//button[1]")
+        login.click()
+
+        time.sleep(2)
+
+        # Check if the user is redirected to the dashboard
+        assert driver.current_url == "https://sourcem.netlify.app/dashboard"
+
+        # Click the logout button
+        logout = driver.find_element(By.XPATH, "//button[@type='button']")
+        logout.click()
+
+        time.sleep(2)
+
+        # Check if the user is redirected to the landing page
+        print(driver.current_url)
+        assert driver.current_url == "https://sourcem.netlify.app/"
 
     # cleanup method called after every test performed
     def tearDown(self):
