@@ -4,6 +4,10 @@ import org.example.AOPDeps.DataStore;
 
 import java.util.HashMap;
 
+/**
+ * ExecutionAspect
+ * Aspect for counting the number of times a method is executed and the time it takes to execute.
+ */
 public aspect ExecutionAspect extends BaseAspect {
     HashMap<String, Long> executionTimer = new HashMap<>();
 
@@ -23,6 +27,7 @@ public aspect ExecutionAspect extends BaseAspect {
         tempTime -= System.nanoTime();
 
         executionTimer.put(methodName, tempTime);
+        // adding data to the datastore
         DataStore.incrementExecutionCounter(methodName);
     }
 
@@ -33,6 +38,7 @@ public aspect ExecutionAspect extends BaseAspect {
         tempTime += System.nanoTime();
 
         executionTimer.put(methodName, tempTime);
+        // adding data to the datastore
         DataStore.logExecutionTime(methodName, tempTime);
     }
 
@@ -43,6 +49,7 @@ public aspect ExecutionAspect extends BaseAspect {
         tempTime += System.nanoTime();
 
         executionTimer.put(methodName, tempTime);
+        // adding data to the datastore
         DataStore.logExecutionTime(methodName, tempTime);
     }
 }

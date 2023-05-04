@@ -40,7 +40,7 @@ function Dashboard() {
   }
 
   const handleDownload = async(applicationName) => {
-    getDownloadURL(ref(storage, `applications/${currentUser.uid}/${applicationName}/output.jar`))
+    getDownloadURL(ref(storage, `applications/${currentUser.uid}/${applicationName}/output.zip`))
       .then((url) => {
 
           fetch(url).then(response => {
@@ -49,7 +49,7 @@ function Dashboard() {
                 const fileURL = window.URL.createObjectURL(blob);
                 let alink = document.createElement('a');
                 alink.href = fileURL;
-                alink.download = 'output.jar';
+                alink.download = 'output.zip';
                 alink.click();
             })
         })

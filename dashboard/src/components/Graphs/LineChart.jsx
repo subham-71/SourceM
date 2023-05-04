@@ -102,7 +102,7 @@ export function LineChart(props) {
 
 
     if (chartData.length<2) {
-    return <div class ="mt-20 font-mono mb-20 text-red-400 items-center justify-center font-extrabold flex flex-wrap"> No execption calls history </div> ; 
+    return <div class ="mt-20 font-mono mb-20 text-red-400 items-center justify-center font-extrabold flex flex-wrap"> No exception calls history </div> ; 
     }
   return <Chart
         chartType="Line"

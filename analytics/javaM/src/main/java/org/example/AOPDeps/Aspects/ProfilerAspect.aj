@@ -4,6 +4,11 @@ import org.example.AOPDeps.DataStore;
 import org.example.AOPDeps.Fstat;
 
 import java.util.Stack;
+
+/**
+ * ProfilerAspect
+ * this aspect that profiles the execution of the program
+ */
 public aspect ProfilerAspect extends BaseAspect {
     static Stack<Fstat> cStack = new Stack<>();
     int depth = 0;
@@ -16,6 +21,7 @@ public aspect ProfilerAspect extends BaseAspect {
             parent = cStack.peek().name;
             parent_id = cStack.peek().call_id;
         }
+        // Pushing a new function call onto the stack
         cStack.push(new Fstat(
             call_id++,
             thisJoinPoint.getSignature().toString(),
@@ -33,6 +39,7 @@ public aspect ProfilerAspect extends BaseAspect {
         Fstat funcStat = cStack.pop();
         funcStat.addEndTime(System.nanoTime());
         depth--;
+        // Update the function statistics if the function returns
         DataStore.updateFStatistic(funcStat);
     }
 
@@ -43,6 +50,7 @@ public aspect ProfilerAspect extends BaseAspect {
         Fstat funcStat = cStack.pop();
         funcStat.addEndTime(System.nanoTime());
         depth--;
+        // Update the function statistics if the function throws
         DataStore.updateFStatistic(funcStat);
     }
 }
