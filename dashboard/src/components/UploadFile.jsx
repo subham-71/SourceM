@@ -35,14 +35,27 @@ export default function UploadFile() {
         })
         const appId = await response.text()
         console.log(appId)
+
         const fileRef = ref(storage, `applications/${currentUser.uid}/${appId}/${jarFile.name}`);
-        uploadBytes(fileRef, jarFile).then((snapshot) => {
+        uploadBytes(fileRef, jarFile).then(async (snapshot) => {
             console.log('Uploaded a blob or file!');
+            const res = await fetch('http://64.227.184.69:8000/application/upload',{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                  },
+                body: JSON.stringify({
+                    "clientId": currentUser.uid,
+                    "appId": appName,
+                }),
+            })
             navigate('/dashboard')
           }).catch((error) => {
             console.log(error)
           }
         );
+
+        
     }
 
   return (

@@ -1,15 +1,33 @@
 'use strict';
 
 const firestore = require('../db');
+const fs = require("fs");
 const Application = require('../models/application');
 const { FieldValue } = require('firebase-admin/firestore');
 
 const applicationUpload = async (req, res) => {
         try {   
                 console.log(req.body)
-                const appName = req.body.appName;
-                const jarFile = req.file;
-                console.log(appId)
+                const clientId = req.body.clientId;
+                const appId = req.appId;
+                
+                var userName = {clientId : clientId, appId: appId};
+
+                // converting the JSON object to a string
+                const data = JSON.stringify(userName);
+
+                // writing the JSON string content to a file
+                fs.writeFile("../config_data/data.json", data, (error) => {
+                        // throwing the error
+                        // in case of a writing problem
+                        if (error) {
+                        // logging the error
+                        console.error(error);
+
+                        throw error;
+                        }
+                console.log("data.json written correctly")} )
+
                 res.status(200).send(data);
         }
         catch (error) {
