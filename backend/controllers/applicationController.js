@@ -57,8 +57,7 @@ const applicationUpload = async (req, res) => {
                 return;
             }
             // Handle the stdout and stderr as needed
-            console.log(`Script output:\n${stdout}`);
-            console.error(`Script errors:\n${stderr}`);
+            console.log(`Script errors:\n${stderr}`);
         });
 
         // download output.zip
@@ -66,8 +65,6 @@ const applicationUpload = async (req, res) => {
         const localFilePathUpload = '../backend/output.zip';
 
         const remoteFilePath = `applications/${clientId}/${appId}/output.zip`;
-
-        console.log("I am here")
 
         await bucket.upload(localFilePathUpload, { destination: remoteFilePath })
             .then(() => {
@@ -92,7 +89,6 @@ const applicationRegister = async (req, res) => {
     const clientId = req.body.clientId;
     const appName = req.body.appName;
     const appStatus = req.body.appStatus
-    // console.log(clientId, appName, appStatus)
     let appId = "";
     await firestore.collection('Application').add({
         'Name': appName,
@@ -124,7 +120,6 @@ const getClientApplications = async (req, res) => {
         application.forEach((doc) => {
             const id = doc.id
             const docData = doc.data()
-            console.log(id, docData)
             applicationMap[id] = { "Name": docData.Name, "Status": docData.Status }
         });
         if (data.exists) {

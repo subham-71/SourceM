@@ -8,7 +8,7 @@ const addFunctionExecutionTime = async (req, res, next) => {
     try {
         const data = req.body.data;
         const appId = req.body.appId;
-        // console.log(data.length);
+
         for (let i = 0; i < data.length; i++) {
             const functStat = await firestore.collection('Application').doc(appId).collection('Function').doc(data[i]["functionName"]).get();
             if (functStat.exists) {
@@ -22,7 +22,6 @@ const addFunctionExecutionTime = async (req, res, next) => {
                 });
             }
             else {
-                console.log(data[i]);
                 await firestore.collection('Application').doc(appId).collection('Function').doc(data[i]["functionName"]).set({
                     "executionCount": data[i]["executionCount"],
                     "timeExecuted": data[i]["timeExecuted"]

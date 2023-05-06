@@ -14,7 +14,6 @@ function Application() {
   const {state} = useLocation()
   const applicationId = state.applicationId
   
-  console.log(applicationId)
   const [toggle, setToggle] = useState([0,1,0,0,0])
 
   const handleLogout = async () => {

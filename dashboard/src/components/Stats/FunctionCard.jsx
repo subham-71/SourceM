@@ -39,7 +39,6 @@ return (
               </dl>
                 <div class = "overflow-hidden items-center" style ={{marginTop : 40}}>            
                     <LineChart height = "350px"  appId={appId} functionId={functionName} />
-                    {console.log({appId} , {functionName})}
                 </div>
               
         </div>

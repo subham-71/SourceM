@@ -24,7 +24,6 @@ export default function AuthProvider({children}) {
     }
 
     function login(email, password) {
-        console.log("In Login");
         return auth.signInWithEmailAndPassword(email, password)
     }
 

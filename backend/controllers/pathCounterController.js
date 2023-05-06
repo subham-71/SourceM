@@ -35,7 +35,6 @@ const addPathCounter = async (req, res) => {
 
 const getAllPathCounters = async (req, res) => {
     const appId = req.body.appId;
-    // console.log(appId)
     const data = await firestore.collection('Application').doc(appId).collection('Path Count').get();
     let pathCount = []
 

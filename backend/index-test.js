@@ -25,7 +25,6 @@ app.get('/', (req,res) => {
     res.send('Welcome to the Source M App');
 });
 
-// app.listen(8000, () => console.log('App is listening on url http://localhost:' + 8000));
 
 module.exports = app;
 

@@ -26,7 +26,6 @@ function Dashboard() {
         }),
       })
       const applicationData = await response.json()
-      console.log("applicationData",applicationData)
       setApplicationData(applicationData)
       }
       catch (error) {

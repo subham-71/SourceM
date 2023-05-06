@@ -75,11 +75,9 @@ const getAllFunctionAllException = async (req, res) => {
         const appId = req.body.appId;
         const exceptionArray = [];
         const data = await firestore.collection('Application').doc(appId).collection('Function').get();
-        // .doc(id).collection('Exception').doc(exceptionId).get();
+
         for (let doc of data.docs) {
-        // for ( let i=0; i<data.docs.length; i++) {
-        //     let dd = doc.data();
-        //     console.log(dd);
+  
             const dataEx =  await firestore.collection('Application').doc(appId).collection('Function').doc(doc.id).collection('Exception').get();
             dataEx.forEach(doc1 => {
                 const excptn = new Exception(

@@ -23,7 +23,6 @@ export default function UploadFile() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("appName",appName)
         const response = await fetch(`http://${base_url}/application/register`,{
             method: "POST",
             headers: {
@@ -36,7 +35,6 @@ export default function UploadFile() {
             }),
         })
         const appId = await response.text()
-        console.log(appId)
 
         const fileRef = ref(storage, `applications/${currentUser.uid}/${appId}/input.jar`);
         uploadBytes(fileRef, jarFile).then(async (snapshot) => {

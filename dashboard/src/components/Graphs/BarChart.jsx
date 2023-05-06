@@ -39,7 +39,7 @@ export function BarChart(props) {
                 )
                 setExceptionData(data);
             } catch (error) {
-                console.log(error);
+                    (error);
             }
         })()
     }, [])

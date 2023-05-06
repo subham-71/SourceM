@@ -1,7 +1,7 @@
 const {firestore,storage} = require('../db');
 
 const request = require("supertest");
-// server = require("../index");
+
 app = require("../index-test")
 server = app.listen(8000, () => console.log('App is listening on url http://localhost:' + 8000));
 
@@ -16,11 +16,6 @@ test ("register", async () => {
         const response = await request(server).post("/application/register").send(data)
         expect(response.statusCode).toBe(200)
 
-        // await firestore.collection('Client').doc(data.clientId).delete().then(() => {
-        //         console.log("Document successfully deleted!");
-        //     }).catch((error) => {
-        //         console.error("Error removing document: ", error);
-        //     });
         
 })
 

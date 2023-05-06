@@ -65,7 +65,6 @@ export function LineChart(props) {
         let minimumTime = new Date(exceptionData[0].timestamps[0]);
         let maximumTime = new Date(exceptionData[0].timestamps[exceptionData[0].timestamps.length - 1]);
 
-        console.log("Here");
         exceptionData.map((item) => {
             newChartData[0].push(item.exceptionName);
             for (let i=0; i<item.timestamps.length; i++) {
@@ -74,9 +73,7 @@ export function LineChart(props) {
                 if ( time > maximumTime ) maximumTime = time;
             }
         });
-        console.log(minimumTime + " " + maximumTime);
-        console.log("Here");
-
+ 
         let startingTime = minimumTime;
         while ( startingTime <= maximumTime ) {
             startingTime = new Date(startingTime.getTime() + 1000 * 60 * 20);
@@ -97,9 +94,6 @@ export function LineChart(props) {
 
         setChartData(newChartData);
     }, [exceptionData])
-
-    console.log(chartData)
-
 
     if (chartData.length<2) {
     return <div class ="mt-20 font-mono mb-20 text-red-400 items-center justify-center font-extrabold flex flex-wrap"> No exception calls history </div> ; 
