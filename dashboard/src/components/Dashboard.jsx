@@ -61,7 +61,7 @@ function Dashboard() {
         console.log(error)
       });
       
-      const response = await fetch('http://sourcem.onrender.com/application/change-status',{
+      const response = await fetch(`http://${base_url}/application/change-status`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

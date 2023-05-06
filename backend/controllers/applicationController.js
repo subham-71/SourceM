@@ -63,7 +63,7 @@ const applicationUpload = async (req, res) => {
 
         // download output.zip
 
-        const localFilePathUpload = '../backend/config_data/input.jar';
+        const localFilePathUpload = '../backend/output.zip';
 
         const remoteFilePath = `applications/${clientId}/${appId}/output.zip`;
 
