@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext.jsx'
 
 export default function UploadFile() {
 
-    const base_url = "64.227.184.69:8000"
+    const base_url = "143.244.130.133:8000"
     const navigate = useNavigate()
     const {currentUser} = useAuth()
     const [appName, setAppName] = useState('');
@@ -24,7 +24,7 @@ export default function UploadFile() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("appName",appName)
-        const response = await fetch('/api/application/register',{
+        const response = await fetch(`http://${base_url}/application/register`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default function UploadFile() {
         const fileRef = ref(storage, `applications/${currentUser.uid}/${appId}/input.jar`);
         uploadBytes(fileRef, jarFile).then(async (snapshot) => {
             console.log('Uploaded a blob or file!');
-            const res = await fetch('/api/application/upload',{
+            const res = await fetch(`http://${base_url}/application/upload`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

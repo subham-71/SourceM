@@ -11,12 +11,12 @@ function Dashboard() {
 
   const {currentUser} = useAuth()
   const [applicationData, setApplicationData] = useState([])
-  const base_url  = "sourcem.onrender.com"
+  const base_url  = "143.244.130.133:8000"
 
   useEffect(() => {
     const getApplicationData = async () => {
       try {
-        const response = await fetch(`https://${base_url}/application/get-client-app`,{
+        const response = await fetch(`http://${base_url}/application/get-client-app`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
