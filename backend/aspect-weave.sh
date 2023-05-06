@@ -3,8 +3,9 @@
 if test -f *.zip; then
   rm -rf *.zip
 fi
-if test -f outputs/; then
-  rm -rf outputs/
+# Check if the output directory exists
+if test -d outputs; then
+  rm -rf outputs
 fi
 
 mv config_data/input.jar .
