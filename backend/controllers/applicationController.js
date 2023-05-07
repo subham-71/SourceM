@@ -47,18 +47,22 @@ const applicationUpload = async (req, res) => {
 
         // run bash script
 
-        const { exec } = require('child_process');
+        function execShellCommand(cmd) {
+        const exec = require('child_process').exec;
+        return new Promise((resolve, reject) => {
+        exec(cmd, (error, stdout, stderr) => {
+        if (error) {
+            console.log(error);
+        }
+            resolve(stdout? stdout : stderr);
+            });
+        });
+        }
 
         const scriptPath = '../backend/aspect-weave.sh';
-
-        exec(`bash ${scriptPath}`, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error executing script: ${error}`);
-                return;
-            }
-            // Handle the stdout and stderr as needed
-            console.log(`Script errors:\n${stderr}`);
-        });
+        const runinfo = await execShellCommand(`bash ${scriptPath}`);
+        console.log(runinfo);
+        
 
         // download output.zip
 
