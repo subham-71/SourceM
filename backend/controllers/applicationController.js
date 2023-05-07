@@ -80,7 +80,7 @@ const applicationUpload = async (req, res) => {
 
 
 
-        res.status(200).send(data);
+        res.status(200);
     }
     catch (error) {
         console.log(error)

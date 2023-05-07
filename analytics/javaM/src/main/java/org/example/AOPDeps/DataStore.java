@@ -14,8 +14,7 @@ public class DataStore {
     public static Thread apiThread;
     public static boolean mainStatus = false;
     public static Gson gson = new Gson();
-    public static ApiGateway apiGateway = new ApiGateway("https://sourcem.onrender.com/");
-    //    public static ApiGateway apiGateway = new ApiGateway("http://localhost:8000/");
+    public static ApiGateway apiGateway = new ApiGateway("http://143.244.130.133:8000/");
     public static ArrayList<Fstat> fStatistics = new ArrayList<>();
     public static HashMap<ArrayList<String>, PathStatistic> pathCounter = new HashMap<>();
     public static HashMap<String, ExecutionStatistic> executionCounter = new HashMap<>();

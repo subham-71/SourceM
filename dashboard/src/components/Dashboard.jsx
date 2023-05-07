@@ -7,11 +7,16 @@ import {ref, getDownloadURL} from 'firebase/storage'
 
 function Dashboard() {
 
+  useEffect(() => {
+    document.title = "Dashboard"
+  }, [])
+
   const navigate = useNavigate()
 
   const {currentUser} = useAuth()
   const [applicationData, setApplicationData] = useState([])
   const base_url  = "143.244.130.133:8000"
+
 
   useEffect(() => {
     const getApplicationData = async () => {
@@ -38,6 +43,19 @@ function Dashboard() {
   const handleRedirect = (applicationName) => {
     navigate('/application', {state: {applicationId: applicationName}})
   }
+
+  const checkFile = async (applicationName) => {
+    try {
+      const url = await getDownloadURL(
+        ref(storage, `applications/${currentUser.uid}/${applicationName}/output.zip`)
+      );
+      console.log(url);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
 
   const handleDownload = async(applicationName) => {
     getDownloadURL(ref(storage, `applications/${currentUser.uid}/${applicationName}/output.zip`))
@@ -108,9 +126,15 @@ function Dashboard() {
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleRedirect(data.appId)}>
                       View Application
                     </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleDownload(data.appId)}>
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleDownload(data.appId)} >Download Release</button>
+                    {/* {
+                      checkFile(data.appId)==true ? <button class="bg-red-500 hover:bg-red-700 text-white font-bold ml-10 py-2 px-4 rounded" onClick={() => handleDownload(data.appId)} >
                       Download Release
+                    </button>:  <button class="bg-red-100 text-white font-bold ml-10 py-2 px-4 rounded" disabled >
+                      Download Not Ready
                     </button>
+                    } */}
+                    
                   </td>
                 </tr>
               ))}
