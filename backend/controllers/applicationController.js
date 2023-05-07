@@ -13,7 +13,7 @@ const applicationUpload = async (req, res) => {
         const clientId = req.body.clientId;
         const appId = req.body.appId;
 
-        var mssg = "appId=" + clientId;
+        var mssg = "appId=" + appId;
         await fs.writeFile("../backend/config_data/config.properties", mssg, (error) => {
 
             if (error) {
