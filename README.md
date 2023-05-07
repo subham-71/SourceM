@@ -78,8 +78,8 @@ The operating environment for the application is listed below:
   
 
 ##  **3. Block Diagram**
-<img alt="Block Diagram" src="./Diagrams/Block%20Diagram.png"></img>
-  
+  ![Block Diagram](https://user-images.githubusercontent.com/72215169/236674305-22d44dd6-b662-4a8f-a3f8-5a69dd3542bf.png)
+
 
 ##  **4. Software Stack**
 
@@ -287,23 +287,33 @@ Users of the U-2 class would only have to be given documentation as to how to us
 
 ##  **11. User Interfaces**
 ### **11.1 Landing Page**
-<img alt="Landing Page" src="./Diagrams/Home.jpg"></img>
+
+![Home](https://user-images.githubusercontent.com/72215169/236674329-46688e0b-7390-408c-98c9-4170845e8ea4.jpg)
+
 
 ### **11.2 Info Page**
-<img alt="Info Page" src="./Diagrams/Info.jpg"></img>
+
+![Info](https://user-images.githubusercontent.com/72215169/236674338-11ba6982-cfa9-45a8-9f02-0859230009c6.jpg)
+
 
 ### **11.3 Dashboard**
-<img alt="Dashboard" src="./Diagrams/Dashboard.PNG"></img>
+
+![Dashboard](https://user-images.githubusercontent.com/72215169/236674348-42605055-9984-41a1-b52c-c7fdc5666adf.PNG)
+
 
 ### **11.4 Control Flow Diagram**
-<img alt="Control Flow Diagram" src="./Diagrams/ControlFlow.jpg"></img>
+
+![ControlFlow](https://user-images.githubusercontent.com/72215169/236674352-bee8d051-48b1-4ac6-8b00-588c49a7dc82.jpg)
+
 
 ### **11.5 Execution Time Diagram**
-<img alt="Execution Time Diagram" src="./Diagrams/ExecutionTime.jpg"></img>
+
+![ExecutionTime](https://user-images.githubusercontent.com/72215169/236674362-3980e8bc-67ba-4ae8-a537-697841d561bf.jpg)
+
 
 ### **11.6 Function Diagram**
-<img alt="Function Diagram" src="./Diagrams/Functions.jpg"></img>   
 
+![Functions](https://user-images.githubusercontent.com/72215169/236674371-44f149fa-2166-40ad-b302-085ebd075cfb.jpg)
 
 
 ##  **12. Contributors**
