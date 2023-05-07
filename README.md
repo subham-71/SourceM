@@ -1,7 +1,7 @@
 
 #  **SourceM**
 
-Documentation : https://github.com/subham-71/CS305-T07/wiki
+[Full Documention](https://github.com/subham-71/CS305-T07/wiki)
 
 ##  **1. Introduction**
 
@@ -23,7 +23,12 @@ Here we list some groups of people who may require this document or come across 
 
 Here we list some groups of people who may require this document or come across this document in some shape or form. This section does not list any technical details.
 
-
+| ID  | Stakeholder                                | Description                                                                                                                                                                                  |
+| --- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| S-1 | Course Instructor and Teaching Assistances | Provide tasks and necessary deadlines to U-2 and U-3 and confirm whether satisfactory progress is being made in the correct direction in application development.                            |
+| S-2 | Development Team                           | Develop fully functioning application with afore-mentioned specifications from U-1 and input from U-4. Ensure integration between different teams and components developed.                  |
+| S-3 | Testing and Maintenance Team               | Test the application and ensure proper functioning under boundary conditions and identify and rectify possible vulnerabilities. Update and monitor possible breaking changes to dependencies |
+| S-4 | End User                                   | Use the platform for tooling and monitoring purposes   
   
 
 ##  **2. Overall Description of the Project**
@@ -73,7 +78,7 @@ The operating environment for the application is listed below:
   
 
 ##  **3. Block Diagram**
-
+<img alt="Block Diagram" src="./Diagrams/Block%20Diagram.png"></img>
   
 
 ##  **4. Software Stack**
@@ -160,7 +165,7 @@ The database will not contain any sensitive information and will be used only to
 
   
 
-<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Uploading files to the server and subsequent weaving of the files on the server</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-3</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>Pressing the upload jar button on the app</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The user has logged in</span></p></td></tr></tbody></table>
+<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Uploading files to the server and subsequent weaving of the files on the server</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-2</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>Pressing the upload jar button on the app</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The user has logged in</span></p></td></tr></tbody></table>
 
   
 
@@ -174,7 +179,7 @@ The database will not contain any sensitive information and will be used only to
 
 ###  **6.2 Data Collection**
 
-<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Woven client application sends data to the API which is stored in the database</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-3</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>User runs the woven application</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The application has been downloaded to the server and it has performed the weaving</span></p></td></tr></tbody></table>
+<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Woven client application sends data to the API which is stored in the database</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-2</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>User runs the woven application</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The application has been downloaded to the server and it has performed the weaving</span></p></td></tr></tbody></table>
 
   
 
@@ -188,13 +193,9 @@ The database will not contain any sensitive information and will be used only to
 
 ###  **6.3 Data Visualization and Summary**
 
-<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Web application fetches data from the database through the backend API and displays it on the React SPA</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-3</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>User selects an application from the dashboard to view analytics</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The application has been woven and the woven application has run for sufficient time to facilitate collection of data</span></p></td></tr></tbody></table>
-
-  
+<table  class="c41 c47"><tbody><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c22">Brief description</span><span  class="c3">&nbsp;</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Web application fetches data from the database through the backend API and displays it on the React SPA</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Target user</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">U-2</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Business trigger</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span>User selects an application from the dashboard to view analytics</span><span></span><span  class="c3">&nbsp;</span></p></td></tr><tr  class="c11"><td  class="c13"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Preconditions</span></p></td><td  class="c21"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">The application has been woven and the woven application has run for sufficient time to facilitate collection of data</span></p></td></tr></tbody></table>
 
 <table  class="c41 c47"><tbody><tr  class="c5"><td  class="c8"  colspan="3"  rowspan="1"><p  class="c7"><span  class="c22">Basic Flow:</span></p><ol  class="c6 lst-kix_2zww4fokxmdg-0 start"  start="1"><li  class="c0 li-bullet-0"><span  class="c3">The user logs into the SPA and selects a particular application</span></li><li  class="c0 li-bullet-0"><span  class="c3">The web application makes API calls to fetch data and arranges it into diagrammatic forms</span></li></ol></td></tr><tr  class="c5"><td  class="c8"  colspan="3"  rowspan="1"><p  class="c7"><span  class="c9">Assumptions:</span></p><ol  class="c6 lst-kix_eybd5m7lbs5u-0 start"  start="1"><li  class="c0 li-bullet-0"><span  class="c3">The external API’s work correctly.</span></li><li  class="c0 li-bullet-0"><span>There is an active internet connection on the system running the application</span></li><li  class="c0 li-bullet-0"><span>The browser is compatible with all necessary dependencies required by the frontend application</span></li></ol></td></tr><tr  class="c11"><td  class="c26"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Line</span></p></td><td  class="c16"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">System Actor Action</span></p></td><td  class="c10"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">System Response</span></p></td></tr><tr  class="c11"><td  class="c26"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">1.</span></p></td><td  class="c16"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">User logs into the web application</span></p></td><td  class="c10"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Browser fetches data regarding all the applications that the user has uploaded apriori and shows them on the dashboard</span></p></td></tr><tr  class="c11"><td  class="c26"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">2. </span></p></td><td  class="c16"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">User selects a particular application</span></p></td><td  class="c10"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Browser fetches data from the API regarding various functions in the applications and application specific data such as call histories</span></p></td></tr><tr  class="c5"><td  class="c26"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Post condition</span></p></td><td  class="c44"  colspan="2"  rowspan="1"><p  class="c7"><span  class="c3">Graphical representation of application specific data is displayed to the user</span></p></td></tr></tbody></table>
-
-  
 
 <table  class="c41 c42"><tbody><tr  class="c5"><td  class="c34"  colspan="2"  rowspan="1"><p  class="c7"><span  class="c9">Alternate Flow : 1) The external APIs do not function properly or there is no internet connection</span></p></td></tr><tr  class="c5"><td  class="c34"  colspan="2"  rowspan="1"><p  class="c7"><span  class="c3">In case of a problem with the external APIs the web application not display anything. Whenever the API is restored a reload will trigger the call that will fetch the corresponding data from the database</span></p></td></tr><tr  class="c5"><td  class="c34"  colspan="2"  rowspan="1"><p  class="c7"><span  class="c3">The use case terminates</span></p></td></tr><tr  class="c5"><td  class="c67"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c9">Post condition:</span></p></td><td  class="c18"  colspan="1"  rowspan="1"><p  class="c7"><span  class="c3">Graphical data is not displayed to the user</span></p></td></tr></tbody></table>
 
@@ -244,8 +245,6 @@ The communication interfaces are primarily between the React SPA - Express serve
 
 1. The only dependency of the application is the Firebase server. The application will be hosted on the Firebase server and will use the Firebase SDK to communicate with the database. The Firebase server will also be used to compile the AJC files.
 
-  
-
 ##  **9. Constraints**
 
 The major limitations are listed below:
@@ -258,32 +257,20 @@ The major limitations are listed below:
 
 4. True measure of time is difficult to accomplish due to the overhead of data collection. API calls occur on a different thread however.
 
-  
-  
+##  **10. User Description**
 
-##  **10. Dataflow Diagram**
-
-  
-
-##  **11. User Description**
-
-###  **11.1 General User Description**
+###  **10.1 General User Description**
 
 Given below is a general description of the various users who would be involved with the application
 
-  
-
-| ID | User Class | Description |
-
+| ID  | User Class              | Description                                                                                                                                                                                                                                           |
 | --- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
 | U-1 | Developers, Maintainers | This would includes people from S-2, S-3 and possibly S-1 who would be involved in actively making changes to the application, maintenance etc. These users would have access to non graphical components such as the database and the Express server |
-
-| U-2 | External Java Developers | These users are from the stakeholder class S-4 who would be uploading JAR files, instrumenting them and using the services of the web application to monitor their application. They will only have access to the web application component |
+| U-2 | External Java Developers |  These users are from the stakeholder class S-4 who would be uploading JAR files, instrumenting them and using the services of the web application to monitor their application. They will only have access to the web application component  |
 
   
 
-###  **11.2 User Documentation**
+###  **10.2 User Documentation**
 
 Documentation of the entire codebase would have to be provided to users of the U-1 class so that they can actively maintain the application. This includes the Aspect files, the Express server and the React application. Suitable test files must also be given so as to ensure maintenance of prior functionality.<br/>
 
@@ -291,34 +278,35 @@ Users of the U-2 class would only have to be given documentation as to how to us
 
   
 
-###  **11.3 User Actions**
+###  **10.3 User Actions**
 
-  
-  
-
-| User Type | Actions |
-
+| User Type | Actions                                                                                                      |
 | --------- | ------------------------------------------------------------------------------------------------------------ |
+| U-1       | General Maintenance <br/> Security patches on dependency updates <br/> Updating Aspect files on new releases |
+| U-2 | Uploading JAR files <br/> Viewing analytics about woven applications <br/> Downloading and running JAR files|  
 
-| U-1 | General Maintenance <br/> Security patches on dependency updates <br/> Updating Aspect files on new releases |
+##  **11. User Interfaces**
+### **11.1 Landing Page**
+<img alt="Landing Page" src="./Diagrams/Home.jpg"></img>
 
-| U-2 | Uploading JAR files <br/> Viewing analytics about woven applications <br/> Downloading and running JAR files|
+### **11.2 Info Page**
+<img alt="Info Page" src="./Diagrams/Info.jpg"></img>
 
-  
+### **11.3 Dashboard**
+<img alt="Dashboard" src="./Diagrams/Dashboard.PNG"></img>
 
-##  **12. User Interfaces**
+### **11.4 Control Flow Diagram**
+<img alt="Control Flow Diagram" src="./Diagrams/ControlFlow.jpg"></img>
 
-  
+### **11.5 Execution Time Diagram**
+<img alt="Execution Time Diagram" src="./Diagrams/ExecutionTime.jpg"></img>
 
-##  **13. Workflow and Timeline**
+### **11.6 Function Diagram**
+<img alt="Function Diagram" src="./Diagrams/Functions.jpg"></img>   
 
-  
 
-To-do : About how an user can weave its jar file on our platform and push it for release. Pathway to show statisitcs about function usage
 
-  
-
-##  **14. Contributors**
+##  **12. Contributors**
 
 *  [Subham Subhasis Sahoo](https://github.com/subham-71) - 2020CSB1317
 
