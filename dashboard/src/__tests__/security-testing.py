@@ -5,6 +5,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+BASE_URL = "143.244.130.133:3000"
+
 class SecurityTest(unittest.TestCase):
 
     # initialization of webdriver
@@ -13,7 +15,7 @@ class SecurityTest(unittest.TestCase):
 
     def test_cross_site_scripting_login(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app/login")
+        driver.get(f"{BASE_URL}/login")
 
         time.sleep(2)
 
@@ -36,7 +38,7 @@ class SecurityTest(unittest.TestCase):
 
     def test_sql_injection_login(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app/login")
+        driver.get(f"{BASE_URL}/login")
 
         time.sleep(2)
 
@@ -55,7 +57,7 @@ class SecurityTest(unittest.TestCase):
         text = alert.text
         alert.accept()
 
-        if driver.current_url == "https://sourcem.netlify.app/dashboard":
+        if driver.current_url == f"{BASE_URL}/dashboard":
             assert False
         else:
             assert True

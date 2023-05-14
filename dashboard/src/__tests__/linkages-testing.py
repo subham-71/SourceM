@@ -5,6 +5,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+BASE_URL = "143.244.130.133:3000"
+
 class LinkagesTest(unittest.TestCase):
     # initialization of webdriver
     def setUp(self):
@@ -12,49 +14,49 @@ class LinkagesTest(unittest.TestCase):
 
     def test_linkage_login(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app")
+        driver.get(f"{BASE_URL}")
         time.sleep(5)
 
         # Click the login button
         login = driver.find_element(By.XPATH, "//button[text()='Login']")
         login.click()
-        assert driver.current_url == "https://sourcem.netlify.app/login"
+        assert driver.current_url == f"{BASE_URL}/login"
         time.sleep(5)
 
     def test_linkage_signup(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app")
+        driver.get(f"{BASE_URL}")
         time.sleep(5)
 
         # Click the signup button
         signup = driver.find_element(By.XPATH, "//button[text()='Signup']")
         signup.click()
-        assert driver.current_url == "https://sourcem.netlify.app/signup"
+        assert driver.current_url == f"{BASE_URL}/signup"
         time.sleep(5)
 
         login_link = driver.find_element(By.XPATH, "//a[text()='Login']")
         login_link.click()
-        assert driver.current_url == "https://sourcem.netlify.app/login#"
+        assert driver.current_url == f"{BASE_URL}/login#"
         time.sleep(5)
 
     def test_linkage_forgot_password(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app/signup")
+        driver.get(f"{BASE_URL}/signup")
         time.sleep(5)
 
         login_link = driver.find_element(By.XPATH, "//a[text()='Login']")
         login_link.click()
         forgot_password_link = driver.find_element(By.XPATH, "//a[text()='Forgot Password?']")
         forgot_password_link.click()
-        assert driver.current_url == "https://sourcem.netlify.app/forgot-password#"
+        assert driver.current_url == f"{BASE_URL}/forgot-password#"
 
         back_signup_link = driver.find_element(By.XPATH, "//a[text()='Create an account']")
         back_signup_link.click()
-        assert driver.current_url == "https://sourcem.netlify.app/signup#"
+        assert driver.current_url == f"{BASE_URL}/signup#"
 
     def test_linkage_dashboard(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app/login")
+        driver.get(f"{BASE_URL}/login")
         time.sleep(5)
 
         username = driver.find_element(By.XPATH, "//input[@type='email']")
@@ -68,22 +70,22 @@ class LinkagesTest(unittest.TestCase):
         login.click()
         time.sleep(20)
 
-        assert driver.current_url == "https://sourcem.netlify.app/dashboard"
+        assert driver.current_url == f"{BASE_URL}/dashboard"
         
 
         # Click the button 
         application_link = driver.find_element(By.XPATH, "//tbody/tr[1]/td[4]/button[1]")
         application_link.click()
-        assert driver.current_url == "https://sourcem.netlify.app/application"
+        assert driver.current_url == f"{BASE_URL}/application"
 
         # Click the button
         dashboard_link = driver.find_element(By.XPATH, "//a[text()='Dashboard']")
         dashboard_link.click()
-        assert driver.current_url == "https://sourcem.netlify.app/dashboard"
+        assert driver.current_url == f"{BASE_URL}/dashboard"
 
     def test_linkage_application(self):
         driver = self.driver
-        driver.get("https://sourcem.netlify.app/login")
+        driver.get(f"{BASE_URL}/login")
         time.sleep(5)
 
         username = driver.find_element(By.XPATH, "//input[@type='email']")
@@ -97,14 +99,14 @@ class LinkagesTest(unittest.TestCase):
         login.click()
         time.sleep(20)
 
-        assert driver.current_url == "https://sourcem.netlify.app/dashboard"
+        assert driver.current_url == f"{BASE_URL}/dashboard"
         
 
         # Click the button 
         application_link = driver.find_element(By.XPATH, "//tbody/tr[1]/td[4]/button[1]")
         application_link.click()
         time.sleep(5)
-        assert driver.current_url == "https://sourcem.netlify.app/application"
+        assert driver.current_url == f"{BASE_URL}/application"
 
         # Click the button
         control_flow = driver.find_element(By.XPATH, "//a[text()='Control-flow']")
