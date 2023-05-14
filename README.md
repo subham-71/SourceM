@@ -131,8 +131,97 @@ The interface will primarily be required to display information about the applic
 
 ![Functions](https://user-images.githubusercontent.com/72215169/236674371-44f149fa-2166-40ad-b302-085ebd075cfb.jpg)
 
+# **Development Environment Setup**
 
-##  **Contributors**
+You can clone the github repo to try your modifications on our application.
+
+## **System Requirements**
+
+The target system is a UNIX machine.
+
+1. For bytecode weaving, Java AJC is used. Java version 17 (LTS) is used ([https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)). 
+2. Chrome is required to run the Selenium tests. Chrome can be downloaded from ([Google Chrome - Download the Fast, Secure Browser from Google](https://www.google.com/chrome/))
+3. Maven is required as a build script. Apache Maven 3.9.1 was used for development. (Maven – Download Apache Maven)
+4. The backend code is written in Node.js.Version for Node.js v18.5.0 to v18.16.0 is suggested. NodeJS stable LTS version. (Can be installed by following these steps: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)) 
+5. We use [Visual Studio Code](https://code.visualstudio.com/) for developing and debugging the backend and frontend(sr/dashboard) code. (src/backend) 
+6. We use [IntelliJ](https://www.jetbrains.com/idea/) for developing and testing the bytecode weaving process of the source code in Java AJC. (`src/analytics/javaM`). 
+
+## **Prepare the Workspace**
+
+Open a shell in the project directory.
+
+### **Backend:**
+
+1. Run `cd src/backend` to get into the backend directory.
+2. Run `npm i` to install any necessary dependencies.
+
+### **Frontend:**
+
+1. Run `cd src/dashboard` to get into the dashboard (frontend) directory.
+2. Run `npm i` to install any necessary dependencies.
+
+### **Java AJC:**
+
+1. Run `cd src/analytics/javaM` to get into the analytics directory,
+2. Run `mvn compile` to weave the test classes.
+
+## **Run Tests**
+
+
+### **Java AJC:**
+
+1. Go to `analytics/javaM/` and run `mvn test` to test the weaved test classes.
+
+### **Backend :**
+
+1. Run `npm test --detectOpenHandles --coverage` for backend testing. Head over to `src/backend/coverage/lcov-report/index.html` to view the code coverage report. 
+2. Run `npm start` to run the application on [http://localhost:8000](http://localhost:8000) 
+
+### **Dashboard:**
+
+1. To see the selenium test coverage : 
+
+    i. Run `cd src/__tests__` inside the dashboard directory.
+
+    ii. Create a Python virtual environment for the tests. Run the command `python3 -m venv tests` to create the virtual environment inside these tests directory.
+
+    iii. Activate the virtual env by running : `.\tests\Scripts\Activate.ps1`
+
+    iv. Run `pip install -r requirements.txt`
+
+    v. To run the tests : `pytest .\auth-testing.py .\security-testing.py .\linkages-testing.py --html=report.html`
+
+    iv. Run `report.html` to see the frontend coverage report.
+
+2. Run `npm run dev` to view the application.
+
+## **Running the Applications**
+
+### **Dashboard**:
+
+1. Run `npm run dev` to run the dashboard application on [http://localhost:5173](http://localhost:5173)
+
+### **Backend**
+1. Run `npm start` to run the backend application on [http://localhost:8000](http://localhost:8000)
+
+## **Weaving and running files locally:**
+Note that the following is not intended to be used separate from the application. If you want to weave your own project JAR file, then follow these steps:
+
+1. Install AJC compiler - AspectJ 1.9.5/1.9.19 ([https://github.com/eclipse-aspectj/aspectj/releases](https://github.com/eclipse-aspectj/aspectj/releases)) ([https://www.eclipse.org/aspectj/downloads.php](https://www.eclipse.org/aspectj/downloads.php))
+2. Add dependency: aspectjrt.jar (can be found along with AspectJ installation) and gson-20.10.1 ([gson - 2.10.1](https://search.maven.org/artifact/com.google.code.gson/gson/2.10.1/jar))
+3. Run the following command to weave your jar file from the command line move to the directory containing the AOPDeps directory in javam (`cd javaM/’src/main/java/org/example/`): 
+`ajc -source 1.8 -cp "<path_to_aspectjrt.jar>;<path_to_gson-2.10.4.jar>;" -sourceroots ".\AOPDeps\" -outjar <output_jar_filename> -inpath <path_to_input_jarfile>`
+5. This weaves the jar files with the necessary aspects and classes.
+
+# **Post-weave release**
+
+
+1. The developers can now distribute the weaved jar files to their clients.
+2. At the client side, to run the weaved files, it is necessary to include aspectjrt.jar and gson in the class path along with any dependencies your project may have. 
+3. Command to run the weaved jar files :  `java -cp "..\Deps\*;.\aspectjrt.jar;.\gson-2.10.1.jar" softwareEngineering.App`
+
+
+#  **Contributors**
 
 *  [Subham Subhasis Sahoo](https://github.com/subham-71) - 2020CSB1317
 
